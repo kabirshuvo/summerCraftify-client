@@ -16,10 +16,17 @@ import categorySlideImage4 from "../../assets/category_slider_image/silder-image
 import categorySlideImage5 from "../../assets/category_slider_image/silder-image-5.jpg";
 import categorySlideImage6 from "../../assets/category_slider_image/silder-image-6.jpg";
 import categorySlideImage7 from "../../assets/category_slider_image/silder-image-7.jpg";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 const Category = () => {
   return (
     <>
+ <div className="mt-40 -mb-20 ">
+ <SectionTitle
+    heading={'Category Section'}
+    title={'Deep Dive and Choose your Fevorite Classes'}
+    ></SectionTitle>
+ </div>
       <div className="md:flex ">
         <div>
           <Swiper
