@@ -1,13 +1,15 @@
-
+import { Outlet } from "react-router-dom";
 
 function App() {
-  
-
   return (
     <>
-      <h3>App.jsx Page</h3>
+      
+
+      <Outlet></Outlet>
+
+ 
     </>
-  )
+  );
 }
 
-export default App
+export default App;
