@@ -1,9 +1,16 @@
+import Category from "../../Category/Category";
+import HeroSec from "../HeroSec/HeroSec";
 
 
 const Home = () => {
     return (
-        <div>
-            <h3>This is home</h3>
+        <div className="py-16">
+            <section>
+            <HeroSec></HeroSec>
+            </section>
+            <section>
+                <Category></Category>
+            </section>
         </div>
     );
 };
