@@ -24,10 +24,12 @@ const AllClasses = () => {
   
   return (
     <div>
-      <h3>All Classes: data will be loaded here</h3>
       <section className="py-16">
+    <div className="p-8">
+    <SectionTitle heading='summer Classes' title='Summer classes are good'></SectionTitle>
+    </div>
       <Cover image={heroImage1} title='Eco Art Adventure'></Cover>
-        <SectionTitle heading='summer Classes' title='Summer classes are good'></SectionTitle>
+        
       </section>
 {/* Category ecoArtAdventure */}
 <ClassesByCategory cls={ecoArtAdventure}></ClassesByCategory>
