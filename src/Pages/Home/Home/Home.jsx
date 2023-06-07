@@ -1,4 +1,6 @@
 import Category from "../../Category/Category";
+import PopularClasses from "../../Populars/PopularClasses";
+import PopularInstructors from "../../Populars/PopularInstractors";
 import HeroSec from "../HeroSec/HeroSec";
 
 
@@ -8,6 +10,8 @@ const Home = () => {
             <section>
             <HeroSec></HeroSec>
             </section>
+            <PopularClasses></PopularClasses>
+            <PopularInstructors></PopularInstructors>
             <section>
                 <Category></Category>
             </section>
