@@ -12,9 +12,9 @@ const DisplaySummerClasses = ({ classes }) => {
     } = classes;
   
     return (
-      <div className="relative card card-side bg-base-100 shadow-xl">
+      <div className="border-accent m-2 relative card card-side bg-base-100 shadow-xl">
         <figure className="card-image">
-          <img className="rounded-lg" style={{width: '7rem', height:'7rem'}} src={image} alt={className} />
+          <img className="rounded-lg -p-2 m-4" style={{width: '7rem', height:'7rem'}} src={image} alt={className} />
         </figure>
         <div className="card-body">
           <h2 className="card-title text-warning text-opacity-70">{className}</h2>
