@@ -1,31 +1,112 @@
 [
-    {
-      "id": 1,
-      "name": "John Smith",
-      "bio": "I am a passionate artist with years of experience in various art forms. I specialize in painting and enjoy teaching others to express their creativity through art.",
-      "specialization": "Painting",
-      "image": "john_smith.jpg",
-      "email": "johnsmith@example.com",
-      "phone": "+1234567890",
-      "socialMedia": {
-        "instagram": "@johnsmithart",
-        "facebook": "JohnSmithArt",
-        "twitter": "@johnsmith"
-      }
-    },
-    {
-      "id": 2,
-      "name": "Jane Doe",
-      "bio": "I am an experienced craftsperson with expertise in a wide range of craft techniques. I love sharing my knowledge and helping students explore their artistic side.",
-      "specialization": "Crafts",
-      "image": "jane_doe.jpg",
-      "email": "janedoe@example.com",
-      "phone": "+9876543210",
-      "socialMedia": {
-        "instagram": "@janedoe",
-        "facebook": "JaneDoeCrafts",
-        "twitter": "@janedoeart"
-      }
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "John Smith",
+    "bio": "I am a passionate artist with years of experience in various art forms. I specialize in painting and enjoy teaching others to express their creativity through art.",
+    "specialization": "Painting",
+    "image": "https://i.ibb.co/Jn4q30M/instructor-1.png",
+    "email": "johnsmith@summercraftify.com",
+    "phone": "+1234567890",
+    "studentEnrolled": "3007"
+  },
+  {
+    "id": 2,
+    "name": "Jane Doe",
+    "bio": "I am an experienced craftsperson with expertise in a wide range of craft techniques. I love sharing my knowledge and helping students explore their artistic side.",
+    "specialization": "Crafts",
+    "image": "https://i.ibb.co/2N1YR0N/instructor-2.png",
+    "email": "janedoe@summercraftify.com",
+    "phone": "+9876543210",
+    "studentEnrolled": "2907"
+  },
+  {
+    "id": 3,
+    "name": "Michael Johnson",
+    "bio": "I am a professional sculptor specializing in creating unique sculptures using various materials. I enjoy teaching others to bring their ideas to life through the art of sculpting.",
+    "specialization": "Sculpting",
+    "image": "https://i.ibb.co/NSg8H15/instructor-3.png",
+    "email": "michaeljohnson@summercraftify.com",
+    "phone": "+9876543210",
+    "studentEnrolled": "6667"
+  },
+  {
+    "id": 4,
+    "name": "Emily Thompson",
+    "bio": "I am a passionate photographer with a keen eye for capturing unique moments. I love teaching others the art of photography and helping them develop their own photographic style.",
+    "specialization": "Photography",
+    "image": "https://i.ibb.co/jT4ZXJ3/instructor-4.png",
+    "email": "emilythompson@summercraftify.com",
+    "phone": "+1234567890",
+    "studentEnrolled": "7777"
+  },
+  {
+    "id": 5,
+    "name": "David Wilson",
+    "bio": "I am a skilled potter with a passion for creating beautiful and functional pottery pieces. I enjoy teaching others the art of pottery and helping them develop their pottery skills.",
+    "specialization": "Pottery",
+    "image": "https://i.ibb.co/9y3BXnW/instructor-5.png",
+    "email": "davidwilson@summercraftify.com",
+    "phone": "+9876543210",
+    "studentEnrolled": "4040"
+  },
+  {
+    "id": 6,
+    "name": "Olivia Brown",
+    "bio": "I am a mixed media artist with a passion for experimenting with different materials and techniques. I love teaching others to explore their creativity and create unique mixed media artworks.",
+    "specialization": "Mixed Media Art",
+    "image": "https://i.ibb.co/5c1Gn9P/instructor-6.png",
+    "email": "oliviabrown@summercraftify.com",
+    "phone": "+1234567890",
+    "studentEnrolled": "5050"
+  },
+  {
+    "id": 7,
+    "name": "William Johnson",
+    "bio": "I am a skilled calligrapher with a deep appreciation for the art of beautiful handwriting. I enjoy teaching others the art of calligraphy and helping them develop their own unique style.",
+    "specialization": "Calligraphy",
+    "image": "https://i.ibb.co/pWGj40j/instructor-7.png",
+    "email": "williamjohnson@summercraftify.com",
+    "phone": "+9876543210",
+    "studentEnrolled": "6060"
+  },
+  {
+    "id": 8,
+    "name": "Sophia Garcia",
+    "bio": "I am a talented jewelry designer specializing in creating unique and exquisite pieces. I love teaching others the art of jewelry making and helping them create their own stunning designs.",
+    "specialization": "Jewelry Making",
+    "image": "https://i.ibb.co/KFccHVD/instructor-8.png",
+    "email": "sophiagarcia@summercraftify.com",
+    "phone": "+1234567890",
+    "studentEnrolled": "5151"
+  },
+  {
+    "id": 9,
+    "name": "Benjamin Martinez",
+    "bio": "I am a passionate woodworker with years of experience in creating custom furniture pieces. I enjoy teaching others the art of woodworking and sharing my knowledge of different woodworking techniques.",
+    "specialization": "Woodworking",
+    "image": "https://i.ibb.co/q77PJCF/instructor-9.png",
+    "email": "benjaminmartinez@summercraftify.com",
+    "phone": "+9876543210",
+    "studentEnrolled": "4646"
+  },
+  {
+    "id": 10,
+    "name": "Ava Wilson",
+    "bio": "I am a skilled illustrator with a passion for creating whimsical and vibrant illustrations. I enjoy teaching others the art of illustration and helping them develop their own unique illustration style.",
+    "specialization": "Illustration",
+    "image": "https://i.ibb.co/pr6v2Fx/instructor-11.png",
+    "email": "avawilson@summercraftify.com",
+    "phone": "+1234567890",
+    "studentEnrolled": "33007"
+  },
+  {
+    "id": 11,
+    "name": "Henry Davis",
+    "bio": "I am a skilled ceramic artist specializing in creating intricate and beautifully crafted ceramic artworks. I love teaching others the art of ceramics and helping them explore the endless possibilities of clay.",
+    "specialization": "Ceramics",
+    "image": "https://i.ibb.co/8jmmzrb/instructor-10.png",
+    "email": "henrydavis@summercraftify.com",
+    "phone": "+9876543210",
+    "studentEnrolled": "307"
+  }
+]
