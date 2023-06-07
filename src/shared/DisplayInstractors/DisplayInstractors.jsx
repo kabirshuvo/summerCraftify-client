@@ -1,14 +1,16 @@
+import React from "react";
+
 const DisplayInstructors = ({ instructor }) => {
   const { name, bio, image, specialization, email, phone, studentEnrolled } =
     instructor;
 
   return (
     <div className="border-accent m-2 p-4 card bg-base-100 shadow-xl">
-      <div className="flex flex-col md:flex-row justify-center items-center">
+      <div className="flex flex-col md:flex-row">
         <div className="md:w-1/3">
           <img
             className="rounded-lg mb-4"
-            style={{ width: "200px", height: '250px'}}
+            style={{ width: "200px" }}
             src={image}
             alt={name}
           />
@@ -33,7 +35,7 @@ const DisplayInstructors = ({ instructor }) => {
               </tr>
             </tbody>
           </table>
-          <button className="btn btn-outline ">Follow</button>
+          <button className="btn btn-primary">View Details</button>
         </div>
       </div>
     </div>

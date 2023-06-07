@@ -1,32 +1,45 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import DisplayInstractors from "../../shared/DisplayInstractors/DisplayInstractors";
+import DisplayInstructors from "../../shared/DisplayInstractors/DisplayInstractors";
+
 
 const PopularInstructors = () => {
   const [instructors, setInstructors] = useState([]);
+  const [displayedInstructors, setDisplayedInstructors] = useState([]);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     fetch("instructors.json")
       .then((res) => res.json())
       .then((data) => {
-        // Sorted the instructors based on the number of students enrolled
         const popularInstructors = data.sort(
           (a, b) => b.studentEnrolled - a.studentEnrolled
         );
         setInstructors(popularInstructors);
+        setDisplayedInstructors(popularInstructors.slice(0, 3));
       });
   }, []);
+
+  const handleShowMore = () => {
+    if (showAll) {
+      setDisplayedInstructors(instructors.slice(0, 3));
+    } else {
+      setDisplayedInstructors(instructors);
+    }
+    setShowAll(!showAll);
+  };
 
   return (
     <section>
       <SectionTitle title={"Our Popular Instructors"} heading={"Instructors"} />
       <h3>Popular instructors: Based on the number of students enrolled in their classes</h3>
       <div className="p-8">
-        {instructors.map((instructor) => (
-          <DisplayInstractors key={instructor.id} instructor={instructor}>
-            
-          </DisplayInstractors>
+        {displayedInstructors.map((instructor) => (
+          <DisplayInstructors key={instructor.id} instructor={instructor} />
         ))}
+        <button className="btn" onClick={handleShowMore}>
+          {showAll ? "Show Less" : "Show More"}
+        </button>
       </div>
     </section>
   );

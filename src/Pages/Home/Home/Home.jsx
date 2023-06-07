@@ -10,8 +10,8 @@ const Home = () => {
             <section>
             <HeroSec></HeroSec>
             </section>
-            <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
+            <PopularClasses></PopularClasses>
             <section>
                 <Category></Category>
             </section>
