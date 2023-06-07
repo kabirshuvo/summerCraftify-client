@@ -22,7 +22,7 @@ const PopularClasses = () => {
         title={"Have a look on Popular classes"}
         heading={"Popular classes"}
       ></SectionTitle>
-<div>
+<div className="grid md:grid-cols-2">
 {
     summerClasses.map(classes => <DisplaySummerClasses key={classes.id} classes={classes}></DisplaySummerClasses>)
 }
