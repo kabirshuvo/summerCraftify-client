@@ -1,6 +1,7 @@
 import DisplaySummerClasses from "../../shared/DisplaySummerClasses/DisplaySummerClasses";
 
 const ClassesByCategory = ({ cls }) => {
+   
   return (
     <div>
       <div className="grid md:grid-cols-2">
