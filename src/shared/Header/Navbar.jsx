@@ -1,18 +1,27 @@
-import { Link } from 'react-router-dom';
-
-
-
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const navOptions = (
+    <>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/aboutus">aboutUs</Link>
+      </li>
+      <li>
+        <Link to="/instructors">instructors</Link>
+      </li>
 
-const navOptions = {
-   
-}
-
+      <li>
+        <Link to="/summerclasses">summerClasses</Link>
+      </li>
+    </>
+  );
 
   return (
-    <>
-      <div className="navbar fixed z-10 max-w-xl mx-auto bg-base-100">
+    <div className="flex justify-center">
+      <div className="navbar fixed z-10 max-w-7xl bg-base-100 bg-opacity-20">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -35,37 +44,19 @@ const navOptions = {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {navOptions}
             </ul>
           </div>
-          <Link to='/'>...S.C... </Link>
+          <Link to="/">...S.C... </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {/* TODO: put nav options */}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
           <a className="btn">Button</a>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

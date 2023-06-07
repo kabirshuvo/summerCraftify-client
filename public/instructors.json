@@ -1,0 +1,31 @@
+[
+    {
+      "id": 1,
+      "name": "John Smith",
+      "bio": "I am a passionate artist with years of experience in various art forms. I specialize in painting and enjoy teaching others to express their creativity through art.",
+      "specialization": "Painting",
+      "image": "john_smith.jpg",
+      "email": "johnsmith@example.com",
+      "phone": "+1234567890",
+      "socialMedia": {
+        "instagram": "@johnsmithart",
+        "facebook": "JohnSmithArt",
+        "twitter": "@johnsmith"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Jane Doe",
+      "bio": "I am an experienced craftsperson with expertise in a wide range of craft techniques. I love sharing my knowledge and helping students explore their artistic side.",
+      "specialization": "Crafts",
+      "image": "jane_doe.jpg",
+      "email": "janedoe@example.com",
+      "phone": "+9876543210",
+      "socialMedia": {
+        "instagram": "@janedoe",
+        "facebook": "JaneDoeCrafts",
+        "twitter": "@janedoeart"
+      }
+    }
+  ]
+  
