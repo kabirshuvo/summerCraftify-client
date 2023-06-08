@@ -1,6 +1,7 @@
 import Category from "../../Category/Category";
 import PopularClasses from "../../Populars/PopularClasses";
 import PopularInstructors from "../../Populars/PopularInstractors";
+import Reviews from "../../Reviews/Reviews";
 import HeroSec from "../HeroSec/HeroSec";
 
 
@@ -14,6 +15,9 @@ const Home = () => {
             <PopularClasses></PopularClasses>
             <section>
                 <Category></Category>
+            </section>
+            <section>
+                <Reviews></Reviews>
             </section>
         </div>
     );

@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "username": "John Doe",
+    "rating": 4.5,
+    "comment": "Great experience! The instructor was very knowledgeable and the class was well-organized.",
+    "date": "2023-06-01",
+    "image": "https://i.ibb.co/qyZLBj6/user-1.png"
+  },
+  {
+    "id": 2,
+    "username": "Jane Smith",
+    "rating": 5,
+    "comment": "I absolutely loved the course! The instructor was fantastic and provided valuable insights.",
+    "date": "2023-06-03",
+    "image": "https://i.ibb.co/Tc6Nq5T/user-2.png"
+  },
+  {
+    "id": 3,
+    "username": "Emily Johnson",
+    "rating": 3.8,
+    "comment": "The class content was good, but the instructor could have been more engaging.",
+    "date": "2023-06-02",
+    "image": "https://i.ibb.co/M5qZNs6/user-3.png"
+  },
+  {
+    "id": 4,
+    "username": "David Williams",
+    "rating": 4,
+    "comment": "I enjoyed the class. The instructor was knowledgeable and provided useful tips.",
+    "date": "2023-06-04",
+    "image": "https://i.ibb.co/SrDGQCG/user-4.png"
+  },
+  {
+    "id": 5,
+    "username": "Sarah Brown",
+    "rating": 4.2,
+    "comment": "The course material was comprehensive, and the instructor was responsive to questions.",
+    "date": "2023-06-05",
+    "image": "https://i.ibb.co/Kxx6fr6/user-5.png"
+  },
+  {
+    "id": 6,
+    "username": "Michael Jones",
+    "rating": 3.5,
+    "comment": "The class had some technical issues, but the instructor did their best to resolve them.",
+    "date": "2023-06-06",
+    "image": "https://i.ibb.co/xsjb5vz/user-6.png"
+  },
+  {
+    "id": 7,
+    "username": "Laura Wilson",
+    "rating": 4.8,
+    "comment": "I highly recommend this class! The instructor was engaging, and the content was valuable.",
+    "date": "2023-06-07",
+    "image": "https://i.ibb.co/2PtggWZ/user-7.png"
+  }
+]
