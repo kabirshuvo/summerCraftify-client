@@ -1,4 +1,4 @@
-import React from "react";
+
 
 const DisplayInstructors = ({ instructor }) => {
   const { name, bio, image, specialization, email, phone, studentEnrolled } =
@@ -19,7 +19,7 @@ const DisplayInstructors = ({ instructor }) => {
           <h2 className="text-2xl font-bold">{name}</h2>
           <p className="text-gray-600 mb-4">{specialization}</p>
           <p className="mb-4">{bio}</p>
-          <table className="w-full mb-4">
+          <table className="w-full mb-4 py-8">
             <tbody>
               <tr>
                 <td className="text-gray-600 pr-2">Email:</td>
@@ -35,7 +35,9 @@ const DisplayInstructors = ({ instructor }) => {
               </tr>
             </tbody>
           </table>
-          <button className="btn btn-primary">View Details</button>
+         <div className="flex justify-end">
+         <button className="btn btn-outline btn-sm btn-info">Get Appionment</button>
+         </div>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import AllInstructors from "../Pages/AllInstructors/AllInstructors";
 import UserLogIn from "../Pages/AllUsers/UserLogIn/UserLogIn";
 import UserRegistration from "../Pages/AllUsers/UserRegistration/UserRegistration";
 import Dashboard from "../Pages/DashBoard/Dashboard/Dashboard";
+import Enrole from "../Pages/Enrole/Enrole";
 import Home from "../Pages/Home/Home/Home";
 import NotFound404 from "../Pages/NotFound404/NotFound404";
 import App from "../layout/App";
@@ -33,8 +34,16 @@ export const router = createBrowserRouter([
                 element: <AllInstructors></AllInstructors>
             },
             {
+                path: 'enrole/:category',
+                Element: <Enrole></Enrole>
+            },
+            {
                 path: 'summerclasses',
                 element: <AllClasses></AllClasses>
+            },
+            {
+                path: 'enrole',
+                element: <Enrole></Enrole>
             },
             {
                 path: 'login',

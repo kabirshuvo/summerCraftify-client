@@ -30,9 +30,8 @@ const PopularInstructors = () => {
   };
 
   return (
-    <section>
+    <section className="py-24">
       <SectionTitle title={"Our Popular Instructors"} heading={"Instructors"} />
-      <h3>Popular instructors: Based on the number of students enrolled in their classes</h3>
       <div className="p-8">
         {displayedInstructors.map((instructor) => (
           <DisplayInstructors key={instructor.id} instructor={instructor} />

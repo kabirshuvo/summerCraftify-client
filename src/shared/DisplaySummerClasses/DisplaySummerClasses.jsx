@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const DisplaySummerClasses = ({ classes }) => {
   const {
@@ -54,7 +54,7 @@ const DisplaySummerClasses = ({ classes }) => {
           <span className="text-info text-opacity-40">Available Seats:</span> {availableSeats}
         </p>
         <div className="absolute right-10 opacity-60 justify-end">
-          <button className="btn-sm btn btn-info btn-outline" disabled={isEnrollmentDisabled}>
+          <button className="btn-xs btn btn-info btn-outline" disabled={isEnrollmentDisabled}>
             Enroll Me
           </button>
         </div>

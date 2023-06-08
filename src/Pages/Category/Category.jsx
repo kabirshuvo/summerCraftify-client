@@ -1,14 +1,8 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import { Link } from "react-router-dom";
+import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-
-import "./style.css";
-
-// import required modules
-import { Pagination } from "swiper";
-
+import { Swiper, SwiperSlide } from "swiper/react";
 import categorySlideImage1 from "../../assets/category_slider_image/silder-image-1.jpg";
 import categorySlideImage2 from "../../assets/category_slider_image/silder-image-2.jpg";
 import categorySlideImage3 from "../../assets/category_slider_image/silder-image-3.jpg";
@@ -17,6 +11,7 @@ import categorySlideImage5 from "../../assets/category_slider_image/silder-image
 import categorySlideImage6 from "../../assets/category_slider_image/silder-image-6.jpg";
 import categorySlideImage7 from "../../assets/category_slider_image/silder-image-7.jpg";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import "./style.css";
 
 const Category = () => {
   return (
@@ -73,14 +68,14 @@ const Category = () => {
             Welcome to <br /> Categorised Arts and Crafts Classes
           </h3>
           <div className="py-7 grid grid-cols-2 gap-4">
-            <a className="p-4 btn btn-outline btn-info" href="">Eco-Art Adventures</a>
-            <a className="p-4 btn btn-outline btn-info" href="">Sunshine Studio</a>
-            <a className="p-4 btn btn-outline btn-info" href="">Tropical Artistry</a>
-            <a className="p-4 btn btn-outline btn-info" href="">Imaginative Explorations</a>
-            <a className="p-4 btn btn-outline btn-info" href="">Crafty Critters</a>
-            <a className="p-4 btn btn-outline btn-info" href="">Paper Paradise</a>
-            <a className="p-4 btn btn-outline btn-info" href="">Sunny Creations</a>
-           
+            <Link to='/enrole/ecoart' className="p-4 btn btn-outline btn-info" href="">Eco-Art Adventures</Link>
+            <Link to='/enrole/sunshine' className="p-4 btn btn-outline btn-info" href="">Sunshine Studio</Link>
+            <Link to='/enrole/artistry' className="p-4 btn btn-outline btn-info" href="">Tropical Artistry</Link>
+            <Link to='/enrole/imaginative' className="p-4 btn btn-outline btn-info" href="">Imaginative Explorations</Link>
+            <Link to='/enrole/craftycritters' className="p-4 btn btn-outline btn-info" href="">Crafty Critters</Link>
+            <Link to='/enrole/paperparadise' className="p-4 btn btn-outline btn-info" href="">Paper Paradise</Link>
+            <Link to='/enrole/sunnycreations' className="p-4 btn btn-outline btn-info" href="">Sunny Creations</Link>
+           {/* I want link this to enrole page tabIndexes */}
           </div>
         </div>
       </div>

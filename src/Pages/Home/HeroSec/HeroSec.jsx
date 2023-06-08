@@ -15,7 +15,8 @@ import heroImage7 from '../../../assets/heroImages/07.jpg';
 const HeroSec = () => {
     return (
         <>
-            <Carousel>
+           <div className="mb-16">
+           <Carousel>
                 <div>
                     <img src={heroImage1} />
                 </div>
@@ -38,6 +39,7 @@ const HeroSec = () => {
                     <img src={heroImage7} />
                 </div>
             </Carousel>
+           </div>
         </>
     );
 };
