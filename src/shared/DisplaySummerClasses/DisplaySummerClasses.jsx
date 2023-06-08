@@ -20,6 +20,9 @@ const DisplaySummerClasses = ({ classes }) => {
     backgroundColor: isEnrollmentDisabled ? '#e63c3c' : '#282828',
   };
 
+  const handleAddtoEnrole = classes => {
+    console.log(classes)
+  }
   return (
     <div className="border-accent m-2 relative card card-side bg-base-100 shadow-xl" style={cardStyle}>
       <figure className="card-image">
@@ -54,7 +57,7 @@ const DisplaySummerClasses = ({ classes }) => {
           <span className="text-info text-opacity-40">Available Seats:</span> {availableSeats}
         </p>
         <div className="absolute right-10 opacity-60 justify-end">
-          <button className="btn-xs btn btn-info btn-outline" disabled={isEnrollmentDisabled}>
+          <button onClick={()=>handleAddtoEnrole(classes)} className="btn-xs btn btn-info btn-outline" disabled={isEnrollmentDisabled}>
             Enroll Me
           </button>
         </div>
