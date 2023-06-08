@@ -19,6 +19,9 @@ const Navbar = () => {
       <li>
         <Link to="/enrole/adventure">Enrole</Link>
       </li>
+      <li>
+        <Link to="/login">Login</Link>
+      </li>
     </>
   );
 

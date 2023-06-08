@@ -8,26 +8,45 @@ import Cover from "../../shared/Cover/cover";
 import EnroleTab from "./EnroleTab";
 
 const Enrole = () => {
-  const categories = ['adventure', 'artistry', 'crafting', 'creations', 'sunshine', 'explorations', 'paperparadise' ]
+  const categories = [
+    "adventure",
+    "artistry",
+    "crafting",
+    "creations",
+    "sunshine",
+    "explorations",
+    "paperparadise",
+  ];
   const { categoryName } = useParams();
 
-  const initialIndex = categories.indexOf(categoryName)
-
-
+  const initialIndex = categories.indexOf(categoryName);
 
   const [tabIndex, setTabIndex] = useState(initialIndex);
   const [classes] = useClases();
 
- 
-  console.log(categoryName)
+  // console.log(categoryName)
 
-  const ecoArtAdventure = classes.filter((cls) => cls.categoryName === 'adventure');
-  const tropicalArtistry = classes.filter((cls) => cls.categoryName === 'artistry');
-  const craftyCritters = classes.filter((cls) => cls.categoryName === 'crafting');
-  const sunnyCreations = classes.filter((cls) => cls.categoryName === 'creations');
-  const sunShineStudio = classes.filter((cls) => cls.categoryName === 'sunshine');
-  const imaginativeExplorations = classes.filter((cls) => cls.categoryName === 'explorations');
-  const paperParadise = classes.filter((cls) => cls.categoryName === 'paperparadise');
+  const ecoArtAdventure = classes.filter(
+    (cls) => cls.categoryName === "adventure"
+  );
+  const tropicalArtistry = classes.filter(
+    (cls) => cls.categoryName === "artistry"
+  );
+  const craftyCritters = classes.filter(
+    (cls) => cls.categoryName === "crafting"
+  );
+  const sunnyCreations = classes.filter(
+    (cls) => cls.categoryName === "creations"
+  );
+  const sunShineStudio = classes.filter(
+    (cls) => cls.categoryName === "sunshine"
+  );
+  const imaginativeExplorations = classes.filter(
+    (cls) => cls.categoryName === "explorations"
+  );
+  const paperParadise = classes.filter(
+    (cls) => cls.categoryName === "paperparadise"
+  );
 
   return (
     <div>
