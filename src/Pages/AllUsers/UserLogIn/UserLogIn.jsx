@@ -1,9 +1,12 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 
-
-const LogIn = () => {
+const UserLogIn = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const { signIn } = useAuth()
 
   const from = location.state?.from?.pathname || "/";
 
@@ -13,21 +16,20 @@ const LogIn = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    // signIn(email, password).then((result) => {
-    //   const user = result.user;
-    //   console.log(user);
-    //   Swal.fire({
-    //     title: "Welcome to Summer Craftify",
-    //     showClass: {
-    //       popup: "animate__animated animate__fadeInDown",
-    //     },
-    //     hideClass: {
-    //       popup: "animate__animated animate__fadeOutUp",
-    //     },
-    //   });
-    //   navigate(from, { replace: true });
-    // });
-    
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+      Swal.fire({
+        title: "Welcome to Summer Craftify",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
+      navigate(from, { replace: true });
+    });
   };
 
   return (
@@ -39,9 +41,7 @@ const LogIn = () => {
           <div className="hero-content flex-col lg:flex-row">
             <div className="text-center lg:text-left">
               <h1 className="text-5xl font-bold">Login now!</h1>
-              <p className="py-6">
-               Welcome to Summer Craftify School Login
-              </p>
+              <p className="py-6">Welcome to Summer Craftify School Login</p>
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <form onSubmit={handleLogin} className="card-body">
@@ -83,7 +83,7 @@ const LogIn = () => {
               <p className="py-4 text-center">
                 <small>
                   New On summerCraftify?{" "}
-                  <Link className="text-warning" to="/signup">
+                  <Link to="/register" className="text-warning">
                     Please Register
                   </Link>
                 </small>
@@ -96,4 +96,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default UserLogIn;
