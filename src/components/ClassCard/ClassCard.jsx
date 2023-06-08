@@ -3,19 +3,20 @@ import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 
 const ClassCard = ({ cls }) => {
-  const { className, image, fees, description } = cls;
+  const { _id, className, image, fees, instructorName, description } = cls;
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleAddtoEnrole = (cls) => {
-    if (user) {
+    if (user && user.email) {
+      const orderItem = { classId: _id, className, instructorName, image, fees, emai: user.email  };
       fetch("http://localhost:5000/enroles", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(cls),
+        body: JSON.stringify(orderItem),
       })
         .then((res) => res.json())
         .then((data) => {
