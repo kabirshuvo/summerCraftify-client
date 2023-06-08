@@ -1,8 +1,20 @@
-
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 const DisplayInstructors = ({ instructor }) => {
   const { name, bio, image, specialization, email, phone, studentEnrolled } =
     instructor;
+
+  const [appointmentConfirmed, setAppointmentConfirmed] = useState(false);
+
+  const handleAppointment = (instructor) => {
+    if (instructor) {
+      Swal.fire(
+        "You are in our waiting List Que. Very soon you will be contacted."
+      );
+      setAppointmentConfirmed(true);
+    }
+  };
 
   return (
     <div className="border-accent m-2 p-4 card bg-base-100 shadow-xl">
@@ -35,9 +47,17 @@ const DisplayInstructors = ({ instructor }) => {
               </tr>
             </tbody>
           </table>
-         <div className="flex justify-end">
-         <button className="btn btn-outline btn-sm btn-info">Get Appionment</button>
-         </div>
+          <div className="flex justify-end">
+            <button
+              onClick={() => handleAppointment(instructor)}
+              className={`btn btn-outline btn-sm ${
+                appointmentConfirmed ? "btn-success" : "btn-info"
+              }`}
+              disabled={appointmentConfirmed}
+            >
+              {appointmentConfirmed ? "Appointment Confirmed" : "Get Appointment"}
+            </button>
+          </div>
         </div>
       </div>
     </div>
