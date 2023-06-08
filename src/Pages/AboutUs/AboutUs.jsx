@@ -1,6 +1,5 @@
 const AboutUs = () => {
   const backgroundImageUrl = "url('https://images.unsplash.com/photo-1487088678257-3a541e6e3922?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80')";
-  const divImage = 'https://images.unsplash.com/photo-1501536563292-5d56009a5942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2129&q=80';
 
   return (
     <div
@@ -8,7 +7,7 @@ const AboutUs = () => {
       style={{ backgroundImage: backgroundImageUrl }}
     >
 
-     <div className="flex flex-col justify-center items-center bg-teal-950 bg-opacity-40 p-16">
+     <div className="flex flex-col justify-center items-center bg-teal-950 bg-opacity-60 p-16">
      <h1 className="text-4xl font-bold mb-6">About Us</h1>
       <p className="mb-4">
         SummerCraftify is a leading art and crafts school that has been providing high-quality creative education since 2007. What started as a small group of university students with a passion for art and crafts has now grown into a thriving institution dedicated to nurturing creativity in individuals of all ages.
