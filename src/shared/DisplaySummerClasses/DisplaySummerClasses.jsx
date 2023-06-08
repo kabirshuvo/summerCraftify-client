@@ -1,6 +1,13 @@
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 
 const DisplaySummerClasses = ({ classes }) => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const {
     className,
     instructorName,
@@ -20,9 +27,47 @@ const DisplaySummerClasses = ({ classes }) => {
     backgroundColor: isEnrollmentDisabled ? '#e63c3c' : '#282828',
   };
 
-  const handleAddtoEnrole = classes => {
-    console.log(classes)
-  }
+
+
+// todo: bugs have to fixed: (twice click the button, mongodb is sending duplicating error)  
+
+
+  const handleAddtoEnrole = (cls) => {
+    if (user) {
+      fetch("http://localhost:5000/enroles", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cls),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Class added to the Wish List",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Please login to enrole the class",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login now!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
+    }
+  };
   return (
     <div className="border-accent m-2 relative card card-side bg-base-100 shadow-xl" style={cardStyle}>
       <figure className="card-image">

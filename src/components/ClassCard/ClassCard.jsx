@@ -1,12 +1,12 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 
 const ClassCard = ({ cls }) => {
   const { className, image, fees, description } = cls;
-
   const { user } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleAddtoEnrole = (cls) => {
     if (user) {
@@ -15,28 +15,33 @@ const ClassCard = ({ cls }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(cls), 
+        body: JSON.stringify(cls),
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
-            Swal.fire("You are enrolled! Confirm it before it ends.");
-          } else {
             Swal.fire({
-              title: "Please Log In first",
-              text: "Only geniuses enroll in the class",
-              icon: "warning",
-              showCancelButton: true,
-              confirmButtonColor: "#3085d6",
-              cancelButtonColor: "#d33",
-              confirmButtonText: "Log In Now",
-            }).then((result) => {
-              if (result.isConfirmed) {
-                navigate("/login");
-              }
+              position: "top-end",
+              icon: "success",
+              title: "Class added to the Wish List",
+              showConfirmButton: false,
+              timer: 1500,
             });
           }
         });
+    } else {
+      Swal.fire({
+        title: "Please login to enrole the class",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login now!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
     }
   };
 
