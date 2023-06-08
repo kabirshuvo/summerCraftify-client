@@ -1,6 +1,15 @@
+import { FaPlaystation } from 'react-icons/fa';
 import { Link } from "react-router-dom";
-
+import useAuth from "../../hooks/useAuth";
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+  const userImage = user?.photoURL;
   const navOptions = (
     <>
       <li>
@@ -20,8 +29,43 @@ const Navbar = () => {
         <Link to="/enrole/adventure">Enrole</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/secret">Secret</Link>
       </li>
+
+      {user ? (
+        <>
+          <button onClick={handleLogout} className="btn btn-outline btn-xs mt-2">
+            LogOut
+          </button>
+
+          <div className="mt-2 ps-2">
+          <img
+            style={{
+              width: "24px",
+              height: "24px",
+              borderRadius: "50%",
+              marginLeft: "4px",
+            }}
+            src={userImage}
+            alt=""
+          />
+          </div>
+        </>
+      ) : (
+        <>
+          {" "}
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </>
+      )}
+
+      <div className=" ms-40 mb-4">
+        <button className="btn">
+          <FaPlaystation></FaPlaystation>
+          <div className="badge badge-info">+19</div>
+        </button>
+      </div>
     </>
   );
 
@@ -59,7 +103,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-sm btn-ghost">Button</a>
+          <a className="btn btn-sm btn-ghost">pay</a>
         </div>
       </div>
     </div>

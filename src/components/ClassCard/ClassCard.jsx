@@ -11,6 +11,12 @@ const ClassCard = ({ cls }) => {
     courseDuration,
   } = cls;
 
+
+
+  const handleAddtoEnrole = cls => {
+    console.log(cls)
+  }
+
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-xl image-full">
@@ -25,7 +31,7 @@ const ClassCard = ({ cls }) => {
           <p>{description}</p>
           <p>{fees}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-ghost border-b-4 border-gray-950 ">Enrole Me</button>
+            <button onClick={()=> handleAddtoEnrole(cls)}  className="btn btn-ghost border-b-4 border-gray-950 ">Enrole Me</button>
           </div>
         </div>
       </div>

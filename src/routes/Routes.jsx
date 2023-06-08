@@ -9,6 +9,7 @@ import Enrole from "../Pages/Enrole/Enrole";
 import Home from "../Pages/Home/Home/Home";
 import NotFound404 from "../Pages/NotFound404/NotFound404";
 import App from "../layout/App";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -49,6 +50,11 @@ export const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <UserRegistration></UserRegistration>
+            },
+            {
+                path: 'secret',
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+
             }
         ]
     },
