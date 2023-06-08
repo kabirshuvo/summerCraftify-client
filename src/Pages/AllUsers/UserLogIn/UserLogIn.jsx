@@ -13,6 +13,20 @@ const LogIn = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+    // signIn(email, password).then((result) => {
+    //   const user = result.user;
+    //   console.log(user);
+    //   Swal.fire({
+    //     title: "Welcome to Summer Craftify",
+    //     showClass: {
+    //       popup: "animate__animated animate__fadeInDown",
+    //     },
+    //     hideClass: {
+    //       popup: "animate__animated animate__fadeOutUp",
+    //     },
+    //   });
+    //   navigate(from, { replace: true });
+    // });
     
   };
 
