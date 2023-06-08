@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Cover from "../../shared/Cover/cover";
 import DisplaySummerClasses from "../../shared/DisplaySummerClasses/DisplaySummerClasses";
 
@@ -14,6 +15,14 @@ const ClassesByCategory = ({ cls, image, title }) => {
           ></DisplaySummerClasses>
         ))}
       </div>
+
+     <Link to={`/enrole/${title}`}>
+     
+     <button className="btn btn-outline border-0 border-b-4 "> Enrole Now</button>     
+     
+     </Link>
+
+
     </div>
   );
 };

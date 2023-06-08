@@ -1,6 +1,5 @@
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import useClases from "../../hooks/useClases";
-import Cover from "../../shared/Cover/cover";
 import ClassesByCategory from "./ClassesByCategory";
 
 import heroImage1 from "../../assets/heroImages/01.jpg";
@@ -14,13 +13,13 @@ import heroImage7 from "../../assets/heroImages/07.jpg";
 const AllClasses = () => {
   const [classes] = useClases();
 
-  const ecoArtAdventure = classes.filter((cls) => cls.categoryId === 1);
-  const tropicalArtistry = classes.filter((cls) => cls.categoryId === 2);
-  const craftyCritters = classes.filter((cls) => cls.categoryId === 3);
-  const sunnyCreations = classes.filter((cls) => cls.categoryId === 4);
-  const sunShineStudio = classes.filter((cls) => cls.categoryId === 5);
-  const imaginativeExplorations = classes.filter((cls) => cls.categoryId === 6);
-  const paperParadise = classes.filter((cls) => cls.categoryId === 7);
+  const ecoArtAdventure = classes.filter((cls) => cls.categoryName === 'adventure');
+  const tropicalArtistry = classes.filter((cls) => cls.categoryName === 'artistry');
+  const craftyCritters = classes.filter((cls) => cls.categoryName === 'crafting');
+  const sunnyCreations = classes.filter((cls) => cls.categoryName === 'creations');
+  const sunShineStudio = classes.filter((cls) => cls.categoryName === 'sunshine');
+  const imaginativeExplorations = classes.filter((cls) => cls.categoryName === 'explorations');
+  const paperParadise = classes.filter((cls) => cls.categoryName === 'paperparadise');
 
   return (
     <div>
@@ -31,33 +30,22 @@ const AllClasses = () => {
             title="Summer classes are good"
           ></SectionTitle>
         </div>
-        <Cover image={heroImage1} title="ecoadventure"></Cover>
+        {/* <Cover image={heroImage1} title="ecoadventure"></Cover> */}
       </section>
       {/* Category ecoArtAdventure */}
-      <ClassesByCategory cls={ecoArtAdventure} image={heroImage1}></ClassesByCategory>
+      <ClassesByCategory cls={ecoArtAdventure} image={heroImage1} title={"adventure"}></ClassesByCategory>
 
       {/* Category tropicalArtistry */}
-     
-      <ClassesByCategory cls={tropicalArtistry} image={heroImage2} title="TropicalArtistry"></ClassesByCategory>
-
+      <ClassesByCategory cls={tropicalArtistry} image={heroImage2} title="artistry"></ClassesByCategory>
       {/*category craftyCritters */}
-     
-      <ClassesByCategory cls={craftyCritters} image={heroImage3} title="craftycritters"></ClassesByCategory>
-
+      <ClassesByCategory cls={craftyCritters} image={heroImage3} title="crafting"></ClassesByCategory>
       {/*category sunnyCreations */}
-      
-      <ClassesByCategory cls={sunnyCreations} image={heroImage4} title="sunnycreations"></ClassesByCategory>
-
+      <ClassesByCategory cls={sunnyCreations} image={heroImage4} title="creations"></ClassesByCategory>
       {/*category sunShineStudio */}
-      
-      <ClassesByCategory cls={sunShineStudio} image={heroImage5} title="sunshinestudio"></ClassesByCategory>
-
+      <ClassesByCategory cls={sunShineStudio} image={heroImage5} title="sunshine"></ClassesByCategory>
       {/*category imaginativeExplorations */}
-     
-      <ClassesByCategory cls={imaginativeExplorations} image={heroImage6} title="imaginativeexploration"></ClassesByCategory>
-
+      <ClassesByCategory cls={imaginativeExplorations} image={heroImage6} title="explorations"></ClassesByCategory>
       {/*category paperParadise */}
-     
       <ClassesByCategory cls={paperParadise} image={heroImage7} title="paperparadise"></ClassesByCategory>
     </div>
   );

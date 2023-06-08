@@ -33,16 +33,13 @@ export const router = createBrowserRouter([
                 path: 'instructors',
                 element: <AllInstructors></AllInstructors>
             },
-            {
-                path: 'enrole/:category',
-                Element: <Enrole></Enrole>
-            },
+            
             {
                 path: 'summerclasses',
                 element: <AllClasses></AllClasses>
             },
             {
-                path: 'enrole',
+                path: 'enrole/:categoryName',
                 element: <Enrole></Enrole>
             },
             {

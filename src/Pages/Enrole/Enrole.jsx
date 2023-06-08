@@ -8,32 +8,39 @@ import Cover from "../../shared/Cover/cover";
 import EnroleTab from "./EnroleTab";
 
 const Enrole = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+  const categories = ['adventure', 'artistry', 'crafting', 'creations', 'sunshine', 'explorations', 'paperparadise' ]
+  const { categoryName } = useParams();
+
+  const initialIndex = categories.indexOf(categoryName)
+
+
+
+  const [tabIndex, setTabIndex] = useState(initialIndex);
   const [classes] = useClases();
 
-  const { categoory } = useParams();
-  console.log(categoory)
+ 
+  console.log(categoryName)
 
-  const ecoArtAdventure = classes.filter((cls) => cls.categoryId === 1);
-  const tropicalArtistry = classes.filter((cls) => cls.categoryId === 2);
-  const craftyCritters = classes.filter((cls) => cls.categoryId === 3);
-  const sunnyCreations = classes.filter((cls) => cls.categoryId === 4);
-  const sunShineStudio = classes.filter((cls) => cls.categoryId === 5);
-  const imaginativeExplorations = classes.filter((cls) => cls.categoryId === 6);
-  const paperParadise = classes.filter((cls) => cls.categoryId === 7);
+  const ecoArtAdventure = classes.filter((cls) => cls.categoryName === 'adventure');
+  const tropicalArtistry = classes.filter((cls) => cls.categoryName === 'artistry');
+  const craftyCritters = classes.filter((cls) => cls.categoryName === 'crafting');
+  const sunnyCreations = classes.filter((cls) => cls.categoryName === 'creations');
+  const sunShineStudio = classes.filter((cls) => cls.categoryName === 'sunshine');
+  const imaginativeExplorations = classes.filter((cls) => cls.categoryName === 'explorations');
+  const paperParadise = classes.filter((cls) => cls.categoryName === 'paperparadise');
 
   return (
     <div>
       <Cover image={coverImage} title="Find Your Dream Class At Summer"></Cover>
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
-          <Tab>Eco Art Adventure</Tab>
-          <Tab>Tropical Artistry</Tab>
-          <Tab>Crafty Critters</Tab>
-          <Tab>Sunny Creations</Tab>
-          <Tab>Sunshine Studio</Tab>
-          <Tab>Imaginative Explorations</Tab>
-          <Tab>Paper Paradise</Tab>
+          <Tab>Adventure</Tab>
+          <Tab>Artistry</Tab>
+          <Tab>Crafting</Tab>
+          <Tab>creations</Tab>
+          <Tab>Sunshine-Studio</Tab>
+          <Tab>Explorations</Tab>
+          <Tab>Paper-Paradise</Tab>
         </TabList>
 
         <TabPanel>
