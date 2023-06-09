@@ -25,7 +25,7 @@ const DashBoard = () => {
         <div className="drawer-content flex flex-col justify-center items-center ">
           <Outlet></Outlet>
           <label htmlFor="my-drawer" className="btn btn-success btn-outline drawer-button">
-            <FaArrowLeft className="text-success text-3xl"></FaArrowLeft> Navigation me to
+            <FaArrowLeft className="text-success text-3xl"></FaArrowLeft> Navigate me to
           </label>
         </div>
         <div className="drawer-side ">
