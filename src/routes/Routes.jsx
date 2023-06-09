@@ -4,12 +4,14 @@ import AllClasses from "../Pages/AllClasses/AllClasses";
 import AllInstructors from "../Pages/AllInstructors/AllInstructors";
 import UserLogIn from "../Pages/AllUsers/UserLogIn/UserLogIn";
 import UserRegistration from "../Pages/AllUsers/UserRegistration/UserRegistration";
-import Dashboard from "../Pages/DashBoard/Dashboard/Dashboard";
+import Enrolled from "../Pages/DashBoard/Enrolled";
 import Enrole from "../Pages/Enrole/Enrole";
 import Home from "../Pages/Home/Home/Home";
 import NotFound404 from "../Pages/NotFound404/NotFound404";
 import App from "../layout/App";
+import DashBoard from "../layout/DashBoard";
 import PrivateRoute from "./PrivateRoute";
+
 
 
 
@@ -53,7 +55,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'secret',
-                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+                element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>
 
             }
         ]
@@ -66,10 +68,11 @@ export const router = createBrowserRouter([
     // dashboard routes
     {
         path: '/dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <DashBoard></DashBoard>,
         children: [
             {
-                path: 'admin'
+                path: 'enroled',
+                element: <Enrolled></Enrolled>
             }
         ]
     }

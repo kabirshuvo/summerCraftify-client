@@ -6,7 +6,7 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
 
   const [enroled] = useEnrole();
-  console.log(enroled)
+  
 
   const handleLogout = () => {
     logOut()
@@ -36,12 +36,12 @@ const Navbar = () => {
         <Link to="/secret">Secret</Link>
       </li>
 
-      <div className=" ms-40 mb-4">
-        <button className="btn">
-          <FaPlaystation></FaPlaystation>
+      <Link to='/dashboard/enroled' className=" mx-8 ">
+        <button className="btn bg-opacity-20">
+          <FaPlaystation className='text-xl text-amber-700'></FaPlaystation>
           <div className="badge badge-info">{enroled.length || 0}</div>
         </button>
-      </div>
+      </Link>
 
       {user ? (
         <>
