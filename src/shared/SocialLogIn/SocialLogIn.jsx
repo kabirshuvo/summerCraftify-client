@@ -20,7 +20,7 @@ const SocialLogin = () => {
           email: loggedInUser.email,
           photoURL: loggedInUser.photoURL,
         };
-        fetch("https://bistro-boss-server-fawn.vercel.app/users", {
+        fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -29,6 +29,7 @@ const SocialLogin = () => {
         })
           .then((res) => res.json())
           .then(() => {
+            console.log(from)
             navigate(from, { replace: true });
           });
       });
