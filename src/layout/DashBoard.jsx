@@ -1,12 +1,12 @@
 import {
-  FaAddressBook,
-  FaBook,
-  FaDemocrat,
-  FaEnvelope,
-  FaGift,
-  FaHatCowboy,
-  FaHome,
-  FaUserAltSlash,
+    FaAddressBook,
+    FaBook,
+    FaDemocrat,
+    FaEnvelope,
+    FaGift,
+    FaHatCowboy,
+    FaHome,
+    FaUserAltSlash,
 } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const DashBoard = () => {
     <>
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content">
+        <div className="drawer-content flex flex-col justify-center items-center">
           <Outlet></Outlet>
           <label htmlFor="my-drawer" className="btn btn-primary drawer-button">
             Open Navigation
@@ -31,12 +31,12 @@ const DashBoard = () => {
               </Link>
             </li>
             <li>
-              <Link>
+              <Link to='/dashboard/sellected'>
                 <FaDemocrat></FaDemocrat> My Sellected Class
               </Link>
             </li>
             <li>
-              <Link>
+              <Link to='/dashboard/enroled'>
                 <FaEnvelope></FaEnvelope> My Enrolled Class
               </Link>
             </li>
