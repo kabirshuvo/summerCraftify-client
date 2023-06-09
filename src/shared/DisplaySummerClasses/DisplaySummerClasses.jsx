@@ -1,9 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
-
+import useEnrole from "../../hooks/useEnrole";
 const DisplaySummerClasses = ({ classes }) => {
   const { user } = useAuth();
+  const [, refetch] = useEnrole()
+  
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -31,7 +33,7 @@ const DisplaySummerClasses = ({ classes }) => {
 
   const handleAddtoEnrole = (cls) => {
     if (user && user.email) {
-      const orderItem = { classId: _id, className, instructorName, image, fees, emai: user.email  };
+      const orderItem = { classId: _id, className, instructorName, image, fees, email: user.email  };
       fetch("http://localhost:5000/enroles", {
         method: "POST",
         headers: {
@@ -42,6 +44,7 @@ const DisplaySummerClasses = ({ classes }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
+            refetch();
             Swal.fire({
               position: "top-end",
               icon: "success",

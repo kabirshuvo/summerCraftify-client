@@ -1,8 +1,12 @@
 import { FaPlaystation } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import useEnrole from '../../hooks/useEnrole';
 const Navbar = () => {
   const { user, logOut } = useAuth();
+
+  const [enroled] = useEnrole();
+  console.log(enroled)
 
   const handleLogout = () => {
     logOut()
@@ -32,6 +36,13 @@ const Navbar = () => {
         <Link to="/secret">Secret</Link>
       </li>
 
+      <div className=" ms-40 mb-4">
+        <button className="btn">
+          <FaPlaystation></FaPlaystation>
+          <div className="badge badge-info">{enroled.length || 0}</div>
+        </button>
+      </div>
+
       {user ? (
         <>
           <button onClick={handleLogout} className="btn btn-outline btn-xs mt-2">
@@ -60,12 +71,7 @@ const Navbar = () => {
         </>
       )}
 
-      <div className=" ms-40 mb-4">
-        <button className="btn">
-          <FaPlaystation></FaPlaystation>
-          <div className="badge badge-info">+19</div>
-        </button>
-      </div>
+     
     </>
   );
 

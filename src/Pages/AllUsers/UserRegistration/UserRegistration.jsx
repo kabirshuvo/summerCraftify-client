@@ -1,3 +1,4 @@
+
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -12,17 +13,20 @@ const UserRegistration = () => {
   } = useForm();
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
+  
+  
 
   const onSubmit = (data) => {
-    console.log(data);
     createUser(data.email, data.password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
-
         updateUserProfile(data.name, data.photoURL).then(() => {
-          const saveUser = { name: data.name, email: data.email };
-          fetch(`http://localhost:5000/users`, {
+          const saveUser = {
+            name: data.name,
+            email: data.email,
+            phoneNumber: data.phoneNumber,
+          };
+          fetch("http://localhost:5000/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -35,8 +39,8 @@ const UserRegistration = () => {
                 reset();
                 let timerInterval;
                 Swal.fire({
-                  title: "User RegisTration Successfull",
-                  html: "Welcome to summerCraftify",
+                  title: "User Registration Successful",
+                  html: "Welcome to SummerCraftify",
                   timer: 1000,
                   timerProgressBar: true,
                   didOpen: () => {
@@ -61,17 +65,17 @@ const UserRegistration = () => {
       })
       .catch((error) => console.error(error));
   };
-
   return (
     <>
       <div className="hero  min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">SignUp</h1>
-            <p className="py-6">Get Registerd with Summer Craftify</p>
+            <h1 className="text-5xl font-bold">Sign Up</h1>
+            <p className="py-6">Get Registered with SummerCraftify</p>
           </div>
           <div className="card flex-shrink-0 max-w-xl shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+              {/* Name */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -89,6 +93,7 @@ const UserRegistration = () => {
                   </span>
                 )}
               </div>
+            {/* Photo URL */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Photo URL</span>
@@ -96,7 +101,7 @@ const UserRegistration = () => {
                 <input
                   type="text"
                   {...register("photoURL", { required: true })}
-                  placeholder="Your photoURL please"
+                  placeholder="Your photo URL please"
                   className="input input-bordered"
                 />
                 {errors.photoURL && (
@@ -105,6 +110,7 @@ const UserRegistration = () => {
                   </span>
                 )}
               </div>
+            {/* email */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -122,6 +128,7 @@ const UserRegistration = () => {
                   </span>
                 )}
               </div>
+          {/* Password */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
@@ -130,42 +137,60 @@ const UserRegistration = () => {
                   type="password"
                   name="password"
                   {...register("password", { required: true, minLength: 6 })}
-                  placeholder="Type Yur Password"
+                  placeholder="Type Your Password"
                   className="input input-bordered"
                 />
                 {errors.password && (
                   <p className="text-warning">
-                    Password should be at least 6 (six) carecthers
+                    Password should be at least 6 characters
                   </p>
                 )}
-
+  
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
                 </label>
               </div>
-              <div className="form-control mt-6">
+        {/* Phone Number */}
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Phone Number</span>
+                </label>
                 <input
-                  className="btn btn-primary"
-                  type="submit"
-                  value="signUp"
+                  type="tel"
+                  name="phoneNumber"
+                  {...register("phoneNumber", { required: true })}
+                  placeholder="Your phone number please"
+                  className="input input-bordered"
                 />
+                {errors.phoneNumber && (
+                  <span className="text-warning">
+                    Phone Number is required
+                  </span>
+                )}
               </div>
-            </form>
-            <p className="py-4 text-center">
-              <small>
-                Allready Have an Account?{" "}
-                <Link className="text-warning" to="/login">
-                  Please signIn.
+             
+            <div className="form-control mt-6">
+              <input
+                type="submit"
+                value="Register"
+                className="btn btn-primary w-full"
+              />
+            </div>
+            <div className="text-center pt-4">
+              <p>
+                Already have an account?{" "}
+                <Link to="/login" className="text-primary">
+                  Log In
                 </Link>
-              </small>
-            </p>
-          </div>
+              </p>
+            </div>
+          </form>
         </div>
       </div>
-    </>
-  );
-};
-
+    </div>
+  </>
+);
+}
 export default UserRegistration;
