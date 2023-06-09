@@ -9,8 +9,10 @@ import {
     FaUserAltSlash,
 } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
+import useEnrole from "../hooks/useEnrole";
 
 const DashBoard = () => {
+    const [enroled] = useEnrole()
   return (
     <>
       <div className="drawer">
@@ -35,10 +37,12 @@ const DashBoard = () => {
                 <FaDemocrat></FaDemocrat> My Sellected Class
               </Link>
             </li>
-            <li>
+            <li >
+            
               <Link to='/dashboard/enroled'>
-                <FaEnvelope></FaEnvelope> My Enrolled Class
+                <FaEnvelope></FaEnvelope> My Enrolled Class <span className="badge badge-info">{enroled.length || 0}</span>
               </Link>
+             
             </li>
             <div className="divider"></div>
             <div className="divider"></div>
