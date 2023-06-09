@@ -19,7 +19,7 @@ const DashBoard = () => {
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col justify-center items-center">
           <Outlet></Outlet>
-          <label htmlFor="my-drawer" className="btn btn-primary drawer-button">
+          <label htmlFor="my-drawer" className="btn btn-success btn-outline drawer-button">
             Open Navigation
           </label>
         </div>
@@ -40,7 +40,7 @@ const DashBoard = () => {
             <li >
             
               <Link to='/dashboard/enroled'>
-                <FaEnvelope></FaEnvelope> My Enrolled Class <span className="badge badge-info">{enroled.length || 0}</span>
+                <FaEnvelope></FaEnvelope> Enrolled Count <span className="text-success text-xl bg-cyan-700 p-1 px-2">{enroled.length || 0}</span>
               </Link>
              
             </li>

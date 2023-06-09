@@ -1,4 +1,4 @@
-import { FaPlaystation } from 'react-icons/fa';
+import { FaCanadianMapleLeaf, FaPlaystation } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useEnrole from '../../hooks/useEnrole';
@@ -15,7 +15,7 @@ const Navbar = () => {
   };
   const userImage = user?.photoURL;
   const navOptions = (
-    <>
+    <div className='text-success flex'>
       <li>
         <Link to="/">Home</Link>
       </li>
@@ -72,7 +72,7 @@ const Navbar = () => {
       )}
 
      
-    </>
+    </div>
   );
 
   return (
@@ -103,13 +103,13 @@ const Navbar = () => {
               {navOptions}
             </ul>
           </div>
-          <Link to="/">...S.C... </Link>
+          <Link to="/"><FaCanadianMapleLeaf className='text-2xl text-success'></FaCanadianMapleLeaf></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-sm btn-ghost">pay</a>
+          <a className="btn btn-sm btn-ghost text-success">pay</a>
         </div>
       </div>
     </div>

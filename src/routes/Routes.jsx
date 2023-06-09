@@ -68,7 +68,7 @@ export const router = createBrowserRouter([
     // dashboard routes
     {
         path: '/dashboard',
-        element: <DashBoard></DashBoard>,
+        element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
         children: [
             {
                 path: 'enroled',

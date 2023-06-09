@@ -1,6 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import SocialLogin from "../../../shared/SocialLogIn/SocialLogIn";
 
 const UserLogIn = () => {
   const navigate = useNavigate();
@@ -40,8 +41,11 @@ const UserLogIn = () => {
         <div className="hero min-h-screen bg-base-200">
           <div className="hero-content flex-col lg:flex-row">
             <div className="text-center lg:text-left">
-              <h1 className="text-5xl font-bold">Login now!</h1>
-              <p className="py-6">Welcome to Summer Craftify School Login</p>
+            <SocialLogin></SocialLogin>
+            <p className="text-success text-center">Get Access By Google</p>
+            <div className="divider text-warning">Or</div>
+              <h1 className="text-5xl font-bold text-center">Login now!</h1>
+              <p className="py-6 text-center">Welcome to Summer Craftify School Login</p>
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <form onSubmit={handleLogin} className="card-body">
