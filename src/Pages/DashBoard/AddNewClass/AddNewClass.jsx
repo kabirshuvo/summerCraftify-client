@@ -42,7 +42,6 @@ const AddNewClass = () => {
             description,
             image: imgURL,
           };
-          console.log(newClass);
 
           axiosSecure.post("/summerclasses", newClass).then((data) => {
             console.log("after posting new class", data.data);

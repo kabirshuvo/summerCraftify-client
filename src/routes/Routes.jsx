@@ -17,6 +17,7 @@ import App from "../layout/App";
 import DashBoard from "../layout/DashBoard";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 
 export const router = createBrowserRouter([
   // General Routs
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
       {
         path: "adminhome",
         element: <AdminHome></AdminHome>,
+      },
+      {
+        path: 'paymenthistory',
+        element: <AdminRoute><PaymentHistory></PaymentHistory></AdminRoute>
       },
       {
         path: "manageclasses",

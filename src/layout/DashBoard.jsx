@@ -26,7 +26,7 @@ const DashBoard = () => {
         <div className="drawer-content flex flex-col justify-center items-center ">
           <Outlet></Outlet>
           <label htmlFor="my-drawer" className="btn btn-success btn-outline drawer-button">
-            <FaArrowLeft className="text-success text-3xl"></FaArrowLeft> Navigate me to
+            <FaArrowLeft className="text-success text-xl"></FaArrowLeft> Navigate me to
           </label>
         </div>
         <div className="drawer-side ">
@@ -42,6 +42,11 @@ const DashBoard = () => {
                <li>
               <Link to='/dashboard/adminhome'>
                 <FaHatCowboy></FaHatCowboy> Admin Home
+              </Link>
+            </li>
+            <li>
+              <Link to='/dashboard/paymenthistory'>
+                <FaDemocrat></FaDemocrat> Payment History
               </Link>
             </li>
             <li>

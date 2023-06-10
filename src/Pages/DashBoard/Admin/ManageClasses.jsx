@@ -1,9 +1,10 @@
-import React from 'react';
+
+import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 
 const ManageClasses = () => {
     return (
-        <div>
-            <h3>Manage All Classes</h3>
+        <div className='py-16 w-full'>
+            <SectionTitle heading={'Manage All Classes'} title={'Managing Classes Should be wise'}></SectionTitle>
         </div>
     );
 };
