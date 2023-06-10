@@ -1,20 +1,39 @@
 import { FaTrashAlt, FaUpload } from "react-icons/fa";
+import Swal from "sweetalert2";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useClases from "../../../hooks/useClases";
 
 const ManageClasses = () => {
-  const [classes] = useClases();
+  const [classes, , refetch] = useClases();
+  const [axiosSecure] = useAxiosSecure();
 
+  const handleAproved = (cls) => {
+    console.log(cls._id);
+  };
 
-const handleAproved = (cls)=> {
-    console.log(cls._id)
-}
+  const handleDelete = (cls) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/summerclasses/${cls._id}`).then((res) => {
+          console.log("deleted response", res.data);
+          if (res.data.deletedCount > 0) {
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          }
 
-const handleDelete = (cls)=> {
-    console.lof(cls._id)
-}
-
-
+          refetch();
+        });
+      }
+    });
+  };
 
   return (
     <div className="py-16 w-full">
@@ -58,12 +77,18 @@ const handleDelete = (cls)=> {
                   <td className="text-info text-">{cls.className}</td>
                   <td className="text-info text-">{cls.description}</td>
                   <td>
-                    <button onClick={()=>handleAproved()} className="text-warning ms-4">
+                    <button
+                      onClick={() => handleAproved(cls)}
+                      className="text-warning ms-4"
+                    >
                       <FaUpload></FaUpload>
                     </button>
                   </td>
                   <td>
-                    <button onClick={()=>handleDelete()}  className="text-red-500 ms-4 ">
+                    <button
+                      onClick={() => handleDelete(cls)}
+                      className="text-red-500 ms-4 "
+                    >
                       <FaTrashAlt></FaTrashAlt>
                     </button>
                   </td>
