@@ -17,8 +17,7 @@ const DashBoard = () => {
     const [enroled] = useEnrole()
     const [isAdmin] = useAdmin()
     
-    // todo:have to load data
-    // const isAdmin = true;
+   
   return (
     <>
       <div className="drawer ">
