@@ -10,14 +10,15 @@ import {
   FaUserAltSlash,
 } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
 import useEnrole from "../hooks/useEnrole";
 
 const DashBoard = () => {
     const [enroled] = useEnrole()
-    
+    const [isAdmin] = useAdmin()
     
     // todo:have to load data
-    const isAdmin = true;
+    // const isAdmin = true;
   return (
     <>
       <div className="drawer ">
