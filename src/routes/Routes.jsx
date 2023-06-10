@@ -4,6 +4,7 @@ import AllClasses from "../Pages/AllClasses/AllClasses";
 import AllInstructors from "../Pages/AllInstructors/AllInstructors";
 import UserLogIn from "../Pages/AllUsers/UserLogIn/UserLogIn";
 import UserRegistration from "../Pages/AllUsers/UserRegistration/UserRegistration";
+import AddNewClass from "../Pages/DashBoard/AddNewClass/AddNewClass";
 import AdminHome from "../Pages/DashBoard/Admin/AdminHome";
 import ManageClasses from "../Pages/DashBoard/Admin/ManageClasses";
 import ManageUsers from "../Pages/DashBoard/Admin/ManageUsers";
@@ -14,6 +15,7 @@ import Home from "../Pages/Home/Home/Home";
 import NotFound404 from "../Pages/NotFound404/NotFound404";
 import App from "../layout/App";
 import DashBoard from "../layout/DashBoard";
+import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -82,11 +84,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "manageclasses",
-        element: <ManageClasses></ManageClasses>,
+        element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>,
       },
       {
         path: "manageusers",
-        element: <ManageUsers></ManageUsers>,
+        element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>,
+      },
+      {
+        path: "addnewcls",
+        element:<AdminRoute><AddNewClass></AddNewClass></AdminRoute>
       },
       // Users Section
       {

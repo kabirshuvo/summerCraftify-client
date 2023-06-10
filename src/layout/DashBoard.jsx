@@ -45,6 +45,11 @@ const DashBoard = () => {
               </Link>
             </li>
             <li>
+              <Link to='/dashboard/addnewcls'>
+                <FaDemocrat></FaDemocrat> Add A New Class
+              </Link>
+            </li>
+            <li>
               <Link to='/dashboard/manageclasses'>
                 <FaDemocrat></FaDemocrat> Manage Classes
               </Link>
