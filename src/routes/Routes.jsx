@@ -18,6 +18,7 @@ import DashBoard from "../layout/DashBoard";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
+import PaYments from "../Pages/DashBoard/PaYments/PaYments";
 
 export const router = createBrowserRouter([
   // General Routs
@@ -82,6 +83,10 @@ export const router = createBrowserRouter([
       {
         path: "adminhome",
         element: <AdminHome></AdminHome>,
+      },
+      {
+        path: 'payments',
+        element: <PaYments></PaYments>
       },
       {
         path: 'paymenthistory',

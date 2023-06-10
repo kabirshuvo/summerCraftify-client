@@ -1,4 +1,4 @@
-import { FaCanadianMapleLeaf, FaPlaystation } from 'react-icons/fa';
+import { FaCanadianMapleLeaf, FaPaypal, FaPlaystation } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useEnrole from '../../hooks/useEnrole';
@@ -109,7 +109,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-sm btn-ghost text-success">pay</a>
+          <Link to='/dashboard/payments' className="btn btn-sm btn-ghost text-success"> <FaPaypal></FaPaypal> PaY </Link>
         </div>
       </div>
     </div>
