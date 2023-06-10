@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
+const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 const AddNewClass = () => {
   const [axiosSecure] = useAxiosSecure();
   const {
@@ -22,23 +22,29 @@ const AddNewClass = () => {
 
     fetch(img_hosting_url, {
       method: "POST",
-      body: formData,
+      body: formData
     })
       .then((res) => res.json())
       .then((imgResponse) => {
         if (imgResponse.success) {
           const imgURL = imgResponse.data.display_url;
-          const { name, price, category, recipe } = data;
-          const newItem = {
-            name,
-            price: parseFloat(price),
-            category,
-            recipe,
+          const { className, instructorName, classDuration, courseDuration, fees, categoryName, categoryId, totalSeats, description } = data;
+       
+          const newClass = {
+            className,
+            instructorName,
+            fees: parseFloat(fees),
+            categoryName,
+            categoryId: parseFloat(categoryId),
+            classDuration: parseFloat(classDuration),
+            courseDuration: parseFloat(courseDuration),
+            totalSeats: parseFloat(totalSeats),
+            description,
             image: imgURL,
           };
+          console.log(newClass);
 
-          console.log(newItem);
-          axiosSecure.post("/summerclasses", newItem).then((data) => {
+          axiosSecure.post("/summerclasses", newClass).then((data) => {
             console.log("after posting new class", data.data);
             if (data.data.insertedId) {
               reset();
@@ -101,7 +107,7 @@ const AddNewClass = () => {
             </label>
             <select
               defaultValue="Pick one"
-              {...register("category", { required: true })}
+              {...register("categoryName", { required: true })}
               className="select select-bordered"
             >
               <option disabled>Pick one</option>
@@ -189,8 +195,8 @@ const AddNewClass = () => {
             </label>
             <input
               type="number"
-              placeholder="Input the Fess"
-              {...register("fess", { required: true })}
+              placeholder="Input the Fees"
+              {...register("fees", { required: true })}
               className="input input-bordered w-full max-w-xs"
             />
           </div>
@@ -200,7 +206,7 @@ const AddNewClass = () => {
             </label>
             <input
               type="number"
-              placeholder="Input the Fess"
+              placeholder="Input the total seat"
               {...register("totalSeats", { required: true })}
               className="input input-bordered w-full max-w-xs"
             />
