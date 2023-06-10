@@ -25,8 +25,27 @@ const CheckOutForm = () => {
     if (card == null) {
       return;
     }
-  };
 
+    const {error, paymentMethod} = await stripe.createPaymentMethod({
+        type: 'card',
+        card,
+      });
+  
+      if (error) {
+        console.log('[error]', error);
+        setCardError(error.message);
+      } else {
+        setCardError('');
+        console.log('[PaymentMethod]', paymentMethod);
+      }
+
+
+
+    };
+
+
+
+  
   return (
     <>
       <form className="w-2/3 mx-auto" onSubmit={handleSubmit}>
@@ -49,12 +68,12 @@ const CheckOutForm = () => {
         <button
           className="btn btn-outline btn-info btn-sm "
           type="submit"
-          disabled={!stripe || !clientSecret || processing}
+        //   disabled={!stripe || !clientSecret || processing}
         >
           Pay
         </button>
       </form>
-      {cardError && <p className="text-red-400">{cardError}</p>}
+      {cardError && <p className="text-red-400 text-center mt-4">{cardError}</p>}
       {transactionId && (
         <p className="text-green-400">
           Transaction complete with TransactionId: {transactionId}
