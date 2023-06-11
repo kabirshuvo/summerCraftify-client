@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const Payments = () => {
   const [payments, setPayments] = useState([]);
@@ -23,6 +24,27 @@ const Payments = () => {
       });
   }, []);
 
+  const deletePayment = (paymentId) => {
+    Swal.fire({
+        title: 'Are you sure, You Want to delete this?',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'delete',
+        denyButtonText: `Don't delete`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          Swal.fire('Saved!', '', 'success')
+        } else if (result.isDenied) {
+          Swal.fire('Changes are not saved', '', 'info')
+        }
+      })
+    // Delete the payment with the given paymentId
+    // todo: have to Implement delete logic here
+    // After successful deletion, you can update the payments state or make a new API request to refresh the data
+    console.log(`Delete payment with ID: ${paymentId}`);
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -32,16 +54,17 @@ const Payments = () => {
   }
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center my-8">
       <div className="w-full max-w-3xl">
         <h1 className="text-3xl font-bold mb-8 text-center">Payment History</h1>
         <table className="w-full border-collapse">
           <thead>
             <tr>
-              <th className="px-4 py-2 bg-gray-200 border">Email</th>
-              <th className="px-4 py-2 bg-gray-200 border">Transaction ID</th>
-              <th className="px-4 py-2 bg-gray-200 border">Fees</th>
-              <th className="px-4 py-2 bg-gray-200 border">Date</th>
+              <th className="px-4 py-2 bg-green-200 border">Email</th>
+              <th className="px-4 py-2 bg-green-200 border">Transaction ID</th>
+              <th className="px-4 py-2 bg-green-200 border">Fees</th>
+              <th className="px-4 py-2 bg-green-200 border">Date</th>
+              <th className="px-4 py-2 bg-green-200 border">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -51,6 +74,14 @@ const Payments = () => {
                 <td className="px-4 py-2 border">{payment.transactionId}</td>
                 <td className="px-4 py-2 border">{payment.fees}</td>
                 <td className="px-4 py-2 border">{payment.date}</td>
+                <td className="px-4 py-2 border">
+                  <button
+                    onClick={() => deletePayment(payment._id)}
+                    className="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
