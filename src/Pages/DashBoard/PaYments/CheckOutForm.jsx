@@ -65,48 +65,38 @@ const CheckOutForm = ({ fees, enroled }) => {
       console.log(confirmError);
     }
     console.log("payment Intent", paymentIntent);
-    setProcessing(false)
+    setProcessing(false);
     if (paymentIntent.status === "succeeded") {
       setTransactionId(paymentIntent.id);
 
-
-
-
-// save payment information to the server
-const payment = {
-    email: user?.email,
-    transactionId: paymentIntent.id,
-    fees,
-    date: new Date(),
-    quantity: enroled.length,
-    classId: enroled.map(cls => cls.classId),
-    interesedIn: enroled.map(cls => cls._id),
-    instructor: enroled.map(cls => cls.instructorName),
-    status: 'service pending',
-    classesName: enroled.map(cls => cls.className)
-}
-axiosSecure.post('/payments', payment)
-    .then(res => {
+      // save payment information to the server
+      const payment = {
+        email: user?.email,
+        transactionId: paymentIntent.id,
+        fees,
+        date: new Date(),
+        quantity: enroled.length,
+        classId: enroled.map((cls) => cls.classId),
+        interesedIn: enroled.map((cls) => cls._id),
+        instructor: enroled.map((cls) => cls.instructorName),
+        status: "service pending",
+        classesName: enroled.map((cls) => cls.className),
+      };
+      axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);
         if (res.data?.insertedResult?.insertedId) {
-            Swal.fire({
-                title: 'PaYment Received',
-                text: 'Now Your Money is in my pocket',
-                imageUrl: 'https://images.unsplash.com/photo-1604948501466-4e9c339b9c24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: 'Custom image',
-              })
-          }
-    })
-
-
-
-
-
-
-
-
+          
+          Swal.fire({
+            title: "PaYment Received",
+            text: "Now Your Money is in my pocket",
+            imageUrl:
+              "https://images.unsplash.com/photo-1604948501466-4e9c339b9c24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image",
+          });
+        }
+      });
     }
   };
 
