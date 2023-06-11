@@ -14,7 +14,7 @@ const ManageUsers = () => {
    // Pagination logic
  
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 5;
+  const usersPerPage = 20;
 
   // Get current users
   const indexOfLastUser = currentPage * usersPerPage;

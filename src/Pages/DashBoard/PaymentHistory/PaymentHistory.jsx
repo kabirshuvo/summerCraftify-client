@@ -7,7 +7,13 @@ const Payments = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/payments")
+
+    fetch("http://localhost:5000/payments",{
+        method: 'GET',
+        headers: {
+            Authorization:`Bearer ${localStorage.getItem('access-token')}`
+        }
+    })
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch payments");
