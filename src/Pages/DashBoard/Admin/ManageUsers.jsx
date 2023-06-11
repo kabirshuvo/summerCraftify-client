@@ -106,10 +106,6 @@ const ManageUsers = () => {
       }
     });
 };
-// Change page
-// const paginate = (pageNumber) => {
-//   setCurrentPage(pageNumber);
-// };
 
 return (
   <div className="py-16 w-3/4">
@@ -180,7 +176,6 @@ return (
         </tbody>
       </table>
     </div>
-    {/* Pagination */}
 
 
 {/* Pagination */}

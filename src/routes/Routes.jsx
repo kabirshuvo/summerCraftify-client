@@ -9,6 +9,7 @@ import AdminHome from "../Pages/DashBoard/Admin/AdminHome";
 import ManageClasses from "../Pages/DashBoard/Admin/ManageClasses";
 import ManageUsers from "../Pages/DashBoard/Admin/ManageUsers";
 import Enrolled from "../Pages/DashBoard/Enrolled";
+import InstructorHome from "../Pages/DashBoard/InstructorRoutes/InstructorHome";
 import PaYments from "../Pages/DashBoard/PaYments/PaYments";
 import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import SellectedClasses from "../Pages/DashBoard/SellectedClasses";
@@ -104,6 +105,11 @@ export const router = createBrowserRouter([
       {
         path: "addnewcls",
         element:<AdminRoute><AddNewClass></AddNewClass></AdminRoute>
+      },
+      // Instructors section
+      {
+        path: "instructornhome",
+        element: <InstructorHome></InstructorHome>
       },
       // Users Section
       {

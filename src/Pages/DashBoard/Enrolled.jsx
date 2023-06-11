@@ -33,10 +33,6 @@ const Enrolled = () => {
     });
   };
 
-  // const handlePay = (classId) => {
-  //   //todo: have to Implement payment logic here
-  //   console.log(`Paying for class with ID: ${classId}`);
-  // };
 
   return (
     <div className="flex justify-center items-center flex-col mb-8">
