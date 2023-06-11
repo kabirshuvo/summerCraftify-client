@@ -7,12 +7,11 @@ const Payments = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-
-    fetch("http://localhost:5000/payments",{
-        method: 'GET',
-        headers: {
-            Authorization:`Bearer ${localStorage.getItem('access-token')}`
-        }
+    fetch("http://localhost:5000/payments", {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('access-token')}`
+      }
     })
       .then((res) => {
         if (!res.ok) {
@@ -21,7 +20,9 @@ const Payments = () => {
         return res.json();
       })
       .then((data) => {
-        setPayments(data);
+        // Sort the payments by date in descending order (recent first)
+        const sortedPayments = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setPayments(sortedPayments);
         setIsLoading(false);
       })
       .catch((error) => {
