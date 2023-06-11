@@ -22,7 +22,7 @@ const Category = () => {
     title={'Deep Dive and Choose your Fevorite Classes'}
     ></SectionTitle>
  </div>
-      <div className="md:flex ">
+      <div className="lg:flex flex-col lg:flex-row ">
         <div>
           <Swiper
             pagination={{
@@ -67,7 +67,7 @@ const Category = () => {
             {" "}
             Welcome to <br /> Categorised Arts and Crafts Classes
           </h3>
-          <div className="py-7 grid grid-cols-2 gap-4">
+          <div className="py-7 grid grid-cols-2 gap-4 me-8">
             <Link to='/enrole/adventure' className="p-4 btn btn-outline btn-info" href="">Eco-Art Adventures</Link>
             <Link to='/enrole/artistry' className="p-4 btn btn-outline btn-info" href="">Tropical Artistry</Link>
             <Link to='/enrole/crafting' className="p-4 btn btn-outline btn-info" href="">Crafty Critters</Link>
@@ -75,7 +75,6 @@ const Category = () => {
             <Link to='/enrole/sunshine' className="p-4 btn btn-outline btn-info" href="">Sunshine Studio</Link>
             <Link to='/enrole/explorations' className="p-4 btn btn-outline btn-info" href="">Imaginative Explorations</Link>
             <Link to='/enrole/paperparadise' className="p-4 btn btn-outline btn-info" href="">Paper Paradise</Link>
-           {/* I want link this to enrole page tabIndexes */}
           </div>
         </div>
       </div>
