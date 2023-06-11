@@ -9,7 +9,10 @@ import AdminHome from "../Pages/DashBoard/Admin/AdminHome";
 import ManageClasses from "../Pages/DashBoard/Admin/ManageClasses";
 import ManageUsers from "../Pages/DashBoard/Admin/ManageUsers";
 import Enrolled from "../Pages/DashBoard/Enrolled";
+import PaYments from "../Pages/DashBoard/PaYments/PaYments";
+import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import SellectedClasses from "../Pages/DashBoard/SellectedClasses";
+import UserHome from "../Pages/DashBoard/UserHome";
 import Enrole from "../Pages/Enrole/Enrole";
 import Home from "../Pages/Home/Home/Home";
 import NotFound404 from "../Pages/NotFound404/NotFound404";
@@ -17,8 +20,6 @@ import App from "../layout/App";
 import DashBoard from "../layout/DashBoard";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
-import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
-import PaYments from "../Pages/DashBoard/PaYments/PaYments";
 
 export const router = createBrowserRouter([
   // General Routs
@@ -105,6 +106,10 @@ export const router = createBrowserRouter([
         element:<AdminRoute><AddNewClass></AddNewClass></AdminRoute>
       },
       // Users Section
+      {
+        path: 'usershome',
+        element: <UserHome></UserHome>
+      },
       {
         path: "enroled",
         element: <Enrolled></Enrolled>,
