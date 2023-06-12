@@ -1,14 +1,15 @@
 import { FaCanadianMapleLeaf, FaPaypal, FaPlaystation } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAdmin from '../../hooks/useAdmin';
 import useAuth from "../../hooks/useAuth";
 import useEnrole from '../../hooks/useEnrole';
+import useInstructor from '../../hooks/useInstructor';
 const Navbar = () => {
   const { user, logOut } = useAuth()
   const [isAdmin] = useAdmin()
-
+const [isInstructor] = useInstructor()
   const [enroled] = useEnrole()
-  
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logOut()
@@ -35,8 +36,34 @@ const Navbar = () => {
         <Link to="/enrole/adventure">Enrole</Link>
       </li>
       <li>
-        <Link to={isAdmin ? '/dashboard/adminhome' : '/dashboard/usershome'}>Dashboard</Link>
-      </li>
+  <Link
+    to={
+      isAdmin
+        ? "/dashboard/adminhome"
+        : isInstructor
+        ? "/dashboard/instructornhome"
+        : "/dashboard/usershome"
+    }
+    onClick={() =>
+      !isAdmin && !isInstructor && navigate("/dashboard/usershome")
+    }
+  >
+    Dashboard
+  </Link>
+
+{/* 
+
+
+
+to={isadmin ? <></> : <><>}
+
+usershome
+
+
+ */}
+
+
+</li>
 
       <Link to='/dashboard/enroled' className=" mx-8 ">
         <button className="btn btn-xs mt-2 bg-opacity-20">

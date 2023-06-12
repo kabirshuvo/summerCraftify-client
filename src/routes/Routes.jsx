@@ -102,14 +102,15 @@ export const router = createBrowserRouter([
         path: "manageusers",
         element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>,
       },
-      {
-        path: "addnewcls",
-        element:<AdminRoute><AddNewClass></AddNewClass></AdminRoute>
-      },
+     
       // Instructors section
       {
         path: "instructornhome",
         element: <InstructorHome></InstructorHome>
+      },
+      {
+        path: "addnewcls",
+        element:<AddNewClass></AddNewClass>
       },
       // Users Section
       {

@@ -14,7 +14,6 @@ const DisplayInstructors = ({ instructor }) => {
   const {name, bio, image, specialization, email, phone, studentEnrolled } =
     instructor;
 
-    console.log(user)
 
   const handleAppointment = (instructor) => {
     console.log('from display Instructor', instructor)

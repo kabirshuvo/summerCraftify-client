@@ -18,6 +18,8 @@ const DashBoard = () => {
   const [enroled] = useEnrole();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
+  console.log('isAdmin',isAdmin)
+  console.log('isInstructor',isInstructor)
   return (
     <>
       <div className="drawer ">
@@ -104,8 +106,25 @@ const DashBoard = () => {
                     Payment History
                   </Link>
                 </li>
-                {/* Routes for instructor */}
-                {isInstructor && (
+                <li>
+                      <Link to="/dashboard/addnewcls">
+                        <motion.span
+                          initial={{ x: -10 }}
+                          animate={{ x: 10 }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                          }}
+                        >
+                          <FaDemocrat></FaDemocrat>
+                        </motion.span>{" "}
+                        Add A New Class
+                      </Link>
+                    </li>
+                {/* Routes for instructor  isInstructor &&*/}
+                
+                { isInstructor && (
                   <>
                     <li>
                       <Link to="/dashboard/instructornhome">
@@ -120,7 +139,7 @@ const DashBoard = () => {
                         >
                           <FaHatCowboy></FaHatCowboy>
                         </motion.span>{" "}
-                        Admin Home
+                        Instructor Home
                       </Link>
                     </li>
                     <li>
@@ -209,7 +228,7 @@ const DashBoard = () => {
               <Link to="/">
                 <motion.span
                   initial={{ x: -10 }}
-                  animate={{ x: 10 }}
+                  animate={{ y: 10 }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
@@ -225,7 +244,7 @@ const DashBoard = () => {
               <Link to="/aboutus">
                 <motion.span
                   initial={{ x: -10 }}
-                  animate={{ x: 10 }}
+                  animate={{ y: 10 }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
@@ -241,7 +260,7 @@ const DashBoard = () => {
               <Link to="/instructors">
                 <motion.span
                   initial={{ x: -10 }}
-                  animate={{ x: 10 }}
+                  animate={{ y: 10 }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
@@ -257,7 +276,7 @@ const DashBoard = () => {
               <Link to="/summerclasses">
                 <motion.span
                   initial={{ x: -10 }}
-                  animate={{ x: 10 }}
+                  animate={{ y: 10 }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
@@ -273,7 +292,7 @@ const DashBoard = () => {
               <Link to="/enrole/adventure">
                 <motion.span
                   initial={{ x: -10 }}
-                  animate={{ x: 10 }}
+                  animate={{ y: 10 }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,

@@ -7,7 +7,7 @@ const useInstructor = () => {
     const [axiosSecure] = useAxiosSecure();
     const {data: isInstructor, isLoading: isInstructorLoading} = useQuery({
         queryKey: ['isInstructor', user?.email],
-        enabled: !loading,
+        enabled: !loading && !!user?.email && !!localStorage.getItem("access-token"),
         queryFn: async () => {
             if(!user){
                 return false

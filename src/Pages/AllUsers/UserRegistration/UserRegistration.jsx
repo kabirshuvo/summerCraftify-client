@@ -1,4 +1,3 @@
-
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -7,7 +6,7 @@ import useTitle from "../../../hooks/useTitle";
 import SocialLogin from "../../../shared/SocialLogIn/SocialLogIn";
 
 const UserRegistration = () => {
-  useTitle('Registration || summerCraftify');
+  useTitle("Registration || summerCraftify");
   const {
     register,
     handleSubmit,
@@ -16,8 +15,6 @@ const UserRegistration = () => {
   } = useForm();
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
-  
-  
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
@@ -29,7 +26,7 @@ const UserRegistration = () => {
             email: data.email,
             phoneNumber: data.phoneNumber,
           };
-          fetch("https://summer-craftify-server.vercel.app/users", {
+          fetch("http://localhost:5000/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -70,16 +67,14 @@ const UserRegistration = () => {
   };
   return (
     <>
-   
       <div className="hero  min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
-          <SocialLogin></SocialLogin>
+            <SocialLogin></SocialLogin>
             <p className="text-success text-center">Get Access By Google</p>
             <div className="divider text-warning">Or</div>
             <h1 className="text-5xl font-bold">Sign Up</h1>
             <p className="py-6">Get Registered with SummerCraftify</p>
-           
           </div>
           <div className="card flex-shrink-0 max-w-xl shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -101,7 +96,7 @@ const UserRegistration = () => {
                   </span>
                 )}
               </div>
-            {/* Photo URL */}
+              {/* Photo URL */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Photo URL</span>
@@ -118,7 +113,7 @@ const UserRegistration = () => {
                   </span>
                 )}
               </div>
-            {/* email */}
+              {/* email */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -136,7 +131,7 @@ const UserRegistration = () => {
                   </span>
                 )}
               </div>
-          {/* Password */}
+              {/* Password */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
@@ -153,14 +148,14 @@ const UserRegistration = () => {
                     Password should be at least 6 characters
                   </p>
                 )}
-  
+
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?
                   </a>
                 </label>
               </div>
-        {/* Phone Number */}
+              {/* Phone Number */}
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Phone Number</span>
@@ -173,32 +168,30 @@ const UserRegistration = () => {
                   className="input input-bordered"
                 />
                 {errors.phoneNumber && (
-                  <span className="text-warning">
-                    Phone Number is required
-                  </span>
+                  <span className="text-warning">Phone Number is required</span>
                 )}
               </div>
-             
-            <div className="form-control mt-6">
-              <input
-                type="submit"
-                value="Register"
-                className="btn btn-outline btn-info w-full"
-              />
-            </div>
-            <div className="text-center pt-4">
-              <p>
-                Already have an account?{" "}
-                <Link to="/login" className="text-warning">
-                  Log In
-                </Link>
-              </p>
-            </div>
-          </form>
+
+              <div className="form-control mt-6">
+                <input
+                  type="submit"
+                  value="Register"
+                  className="btn btn-outline btn-info w-full"
+                />
+              </div>
+              <div className="text-center pt-4">
+                <p>
+                  Already have an account?{" "}
+                  <Link to="/login" className="text-warning">
+                    Log In
+                  </Link>
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </>
-);
-}
+    </>
+  );
+};
 export default UserRegistration;

@@ -21,7 +21,7 @@ const SellectedClasses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://summer-craftify-server.vercel.app/enroles/${classId}`, {
+        fetch(`http://localhost:5000/enroles/${classId}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
