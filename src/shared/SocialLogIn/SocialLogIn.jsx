@@ -20,7 +20,7 @@ const SocialLogin = () => {
           email: loggedInUser.email,
           photoURL: loggedInUser.photoURL,
         };
-        fetch("http://localhost:5000/users", {
+        fetch("https://summer-craftify-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

@@ -1,13 +1,13 @@
 import axios from "axios";
 import {
-  GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  getAuth,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  signOut,
-  updateProfile,
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+    getAuth,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { app } from "../firebase/firebase.config";
@@ -55,7 +55,7 @@ const AuthProvider = ({ children }) => {
       // get and set token done
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", { email: currentUser?.email })
+          .post("https://summer-craftify-server.vercel.app/jwt", { email: currentUser?.email })
           .then((data) => {
             // console.log(data.data.token);
             localStorage.setItem("access-token", data.data.token);

@@ -13,7 +13,7 @@ const ClassCard = ({ cls }) => {
   const handleAddtoEnrole = (cls) => {
     if (user && user.email) {
       const orderItem = { classId: _id, className, instructorName, image, fees, email: user.email  };
-      fetch("http://localhost:5000/enroles", {
+      fetch("https://summer-craftify-server.vercel.app/enroles", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

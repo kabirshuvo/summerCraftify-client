@@ -6,7 +6,7 @@ const useClases = () => {
     const {data: classes = [], isLoading: loading, refetch} = useQuery({
         queryKey: ['summerclasses'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/summerclasses');
+            const res = await fetch('https://summer-craftify-server.vercel.app/summerclasses');
             return res.json();
         }
     })
