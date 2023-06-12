@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import DisplayInstructors from "../../shared/DisplayInstractors/DisplayInstractors";
+import useTitle from "../../hooks/useTitle";
 
 
 const AllInstructors = () => {
+  useTitle('Instructors || summerCraftify');
     const [instructors, setInstructors] = useState([]);
-
-
 
     useEffect(() => {
         fetch("instructors.json")

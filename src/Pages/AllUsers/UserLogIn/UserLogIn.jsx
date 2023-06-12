@@ -2,8 +2,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import SocialLogin from "../../../shared/SocialLogIn/SocialLogIn";
+import useTitle from "../../../hooks/useTitle";
 
 const UserLogIn = () => {
+  useTitle('LogIn || summerCraftify');
   const navigate = useNavigate();
   const location = useLocation();
 

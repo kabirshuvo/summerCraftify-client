@@ -1,9 +1,12 @@
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useTitle from "../../hooks/useTitle";
 
 
 const UserHome = () => {
+  useTitle('UserHome || summerCraftify');
+
     const {user} = useAuth()
     const [axiosSecure] = useAxiosSecure()
     return (

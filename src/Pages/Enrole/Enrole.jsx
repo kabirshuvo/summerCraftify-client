@@ -6,8 +6,11 @@ import coverImage from "../../assets/heroImages/07.jpg";
 import useClases from "../../hooks/useClases";
 import Cover from "../../shared/Cover/cover";
 import EnroleTab from "./EnroleTab";
+import useTitle from "../../hooks/useTitle";
 
 const Enrole = () => {
+  useTitle('Enrole || summerCraftify');
+  
   const categories = [
     "adventure",
     "artistry",

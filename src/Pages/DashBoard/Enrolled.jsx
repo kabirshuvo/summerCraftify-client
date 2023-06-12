@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import useEnrole from "../../hooks/useEnrole";
+import useTitle from "../../hooks/useTitle";
 
 const Enrolled = () => {
+  useTitle('Enrolled || summerCraftify');
+
   const [enroled, refetch] = useEnrole();
   console.log(enroled);
 

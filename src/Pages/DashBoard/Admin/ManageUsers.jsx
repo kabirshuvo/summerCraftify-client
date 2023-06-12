@@ -3,8 +3,10 @@ import { useState } from "react";
 import { FaTrashAlt, FaUnity, FaUsersSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useTitle from "../../../hooks/useTitle";
 
 const ManageUsers = () => {
+  useTitle('ManageUsers || summerCraftify');
   const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await axiosSecure.get("/users");

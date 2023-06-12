@@ -3,9 +3,11 @@ import Swal from "sweetalert2";
 
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useTitle from "../../../hooks/useTitle";
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 const AddNewClass = () => {
+  useTitle('AddNew || summerCraftify');
   const [axiosSecure] = useAxiosSecure();
   const {
     register,

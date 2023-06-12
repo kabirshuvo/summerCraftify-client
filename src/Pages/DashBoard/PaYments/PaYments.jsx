@@ -3,11 +3,14 @@ import { loadStripe } from "@stripe/stripe-js";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useEnrole from "../../../hooks/useEnrole";
 import CheckOutForm from "./CheckOutForm";
+import useTitle from "../../../hooks/useTitle";
 
 // todo:
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
 const PaYments = () => {
+  useTitle('PaYments || summerCraftify');
+
 
 
 const [enroled] = useEnrole();

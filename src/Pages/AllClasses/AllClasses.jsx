@@ -9,8 +9,13 @@ import heroImage4 from "../../assets/heroImages/04.jpg";
 import heroImage5 from "../../assets/heroImages/05.jpg";
 import heroImage6 from "../../assets/heroImages/06.jpg";
 import heroImage7 from "../../assets/heroImages/07.jpg";
+import useTitle from "../../hooks/useTitle";
 
 const AllClasses = () => {
+
+  useTitle('SummerClasses || summerCraftify');
+
+
   const [classes] = useClases();
 
   const ecoArtAdventure = classes.filter((cls) => cls.categoryName === 'adventure');

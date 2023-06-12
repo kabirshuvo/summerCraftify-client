@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const Payments = () => {
+  useTitle('Payments || summerCraftify');
+
   const [payments, setPayments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

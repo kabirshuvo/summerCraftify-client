@@ -3,8 +3,10 @@ import { useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useTitle from "../../../hooks/useTitle";
 
 const AdminHome = () => {
+  useTitle('AdminHome || summerCraftify');
   const { user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
   const [page, setPage] = useState(1);

@@ -1,18 +1,65 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAppionments from "../../hooks/useAppionments";
+import useAuth from "../../hooks/useAuth";
 
 const DisplayInstructors = ({ instructor }) => {
-  const { name, bio, image, specialization, email, phone, studentEnrolled } =
+  const [appointmentConfirmed, setAppointmentConfirmed] = useState(false);
+  const { user } = useAuth();
+  const [, refetch] = useAppionments();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const {_id, name, bio, image, specialization, email, phone, studentEnrolled } =
     instructor;
 
-  const [appointmentConfirmed, setAppointmentConfirmed] = useState(false);
+    console.log(user)
 
   const handleAppointment = (instructor) => {
-    if (instructor) {
-      Swal.fire(
-        "You are in our waiting List Que. Very soon you will be contacted."
-      );
-      setAppointmentConfirmed(true);
+    console.log('from display Instructor', instructor)
+    if (user && user.email) {
+      const newAppionment = {
+        name,
+        image,
+        specialization,
+        email: user.email,
+      };
+      fetch("http://localhost:5000/appionments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newAppionment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            refetch();
+            setAppointmentConfirmed(true);
+
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Appionment Added for Confirmation",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Please login to Get an appionment",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login now!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
     }
   };
 
@@ -55,7 +102,9 @@ const DisplayInstructors = ({ instructor }) => {
               }`}
               disabled={appointmentConfirmed}
             >
-              {appointmentConfirmed ? "Appointment Confirmed" : "Get Appointment"}
+              {appointmentConfirmed
+                ? "Appointment Confirmed"
+                : "Get Appointment"}
             </button>
           </div>
         </div>

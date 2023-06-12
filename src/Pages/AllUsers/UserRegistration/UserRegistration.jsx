@@ -3,9 +3,11 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import useTitle from "../../../hooks/useTitle";
 import SocialLogin from "../../../shared/SocialLogIn/SocialLogIn";
 
 const UserRegistration = () => {
+  useTitle('Registration || summerCraftify');
   const {
     register,
     handleSubmit,

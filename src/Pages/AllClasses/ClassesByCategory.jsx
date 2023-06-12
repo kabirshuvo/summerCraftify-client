@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 import Cover from "../../shared/Cover/cover";
 import DisplaySummerClasses from "../../shared/DisplaySummerClasses/DisplaySummerClasses";
 
 const ClassesByCategory = ({ cls, image, title }) => {
+
+  useTitle('Category || summerCraftify');
 
   return (
     <div>

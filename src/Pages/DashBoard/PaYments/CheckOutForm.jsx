@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useTitle from "../../../hooks/useTitle";
 
 const CheckOutForm = ({ fees, enroled }) => {
+  useTitle('CheckOut || summerCraftify');
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();

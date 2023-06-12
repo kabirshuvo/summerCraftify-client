@@ -4,8 +4,11 @@ import PopularClasses from '../../Populars/PopularClasses';
 import PopularInstructors from '../../Populars/PopularInstractors';
 import Reviews from '../../Reviews/Reviews';
 import HeroSec from '../HeroSec/HeroSec';
+import useTitle from '../../../hooks/useTitle';
 
 const Home = () => {
+  useTitle('Home || summerCraftify');
+  
   const [theme, setTheme] = useState('dark');
 
   const toggleTheme = () => {

@@ -12,8 +12,10 @@ import categorySlideImage6 from "../../assets/category_slider_image/silder-image
 import categorySlideImage7 from "../../assets/category_slider_image/silder-image-7.jpg";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import "./style.css";
+import useTitle from "../../hooks/useTitle";
 
 const Category = () => {
+  useTitle('Category || summerCraftify');
   return (
     <>
  <div className="mt-40 -mb-20 ">

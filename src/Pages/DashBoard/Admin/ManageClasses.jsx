@@ -4,8 +4,10 @@ import Swal from "sweetalert2";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useClases from "../../../hooks/useClases";
+import useTitle from "../../../hooks/useTitle";
 
 const ManageClasses = () => {
+  useTitle('Manage Classes || summerCraftify');
   const [classes, , refetch] = useClases();
   const [axiosSecure] = useAxiosSecure();
   const [currentPage, setCurrentPage] = useState(1);
