@@ -21,7 +21,7 @@ const UserRegistration = () => {
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
-      .then((result) => {
+      .then(() => {
         // const loggedUser = result.user;
         updateUserProfile(data.name, data.photoURL).then(() => {
           const saveUser = {

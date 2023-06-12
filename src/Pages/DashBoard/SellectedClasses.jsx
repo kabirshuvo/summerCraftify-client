@@ -36,7 +36,7 @@ const SellectedClasses = () => {
   };
 
   const handleEnrole = (classId) => {
-    console.log('Enrole Done ')
+    console.log(classId)
   }
 
   return (

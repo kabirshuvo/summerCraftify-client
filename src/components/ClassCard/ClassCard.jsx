@@ -10,7 +10,7 @@ const ClassCard = ({ cls }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleAddtoEnrole = (cls) => {
+  const handleAddtoEnrole = () => {
     if (user && user.email) {
       const orderItem = { classId: _id, className, instructorName, image, fees, email: user.email  };
       fetch("https://summer-craftify-server.vercel.app/enroles", {

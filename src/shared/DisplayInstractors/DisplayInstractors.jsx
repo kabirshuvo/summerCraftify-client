@@ -11,7 +11,7 @@ const DisplayInstructors = ({ instructor }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const {_id, name, bio, image, specialization, email, phone, studentEnrolled } =
+  const {name, bio, image, specialization, email, phone, studentEnrolled } =
     instructor;
 
     console.log(user)
