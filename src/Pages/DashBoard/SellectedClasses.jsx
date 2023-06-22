@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import useEnrole from "../../hooks/useEnrole";
+import useSellectedClasses from "../../hooks/useSellectedClasses";
 import useTitle from "../../hooks/useTitle";
 
 const SellectedClasses = () => {
   useTitle('SellectedClasses || summerCraftify');
-  const [enroled, refetch] = useEnrole();
-  console.log(enroled);
 
-  const totalFees = enroled.reduce((sum, cls) => cls.fees + sum, 0);
+  const [sellectedclasses, refetch] = useSellectedClasses();
+  console.log(sellectedclasses);
+
+  const totalFees = sellectedclasses.reduce((sum, cls) => cls.fees + sum, 0);
 
   const handleDelete = (classId) => {
     Swal.fire({
@@ -21,7 +22,7 @@ const SellectedClasses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/enroles/${classId}`, {
+        fetch(`http://localhost:5000/sellectedclasses/${classId}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -35,22 +36,22 @@ const SellectedClasses = () => {
     });
   };
 
-  const handleEnrole = (classId) => {
+  const handleSingleClassEnrole = (classId) => {
     console.log(classId)
   }
 
   return (
     <div className="flex justify-center items-center flex-col mb-8">
-      <h3 className="text-3xl text-success mt-8">Total Sellected Clases : {enroled.length}</h3>
-      <p className="text-xl text-cyan-700">Total Fees: ${totalFees}</p>
-      <Link to='/dashboard/payments'><button className="btn btn-outline btn-active">PaYment PaYrasia</button></Link>
+      <h3 className="text-3xl text-success mt-8">Total Sellected Clases : {sellectedclasses.length}</h3>
+      <p className="text-xl text-cyan-700 py-8">Total Fees: ${totalFees}</p>
+      <Link to='/dashboard/payments'><button className="btn btn-outline btn-active my-8">Enrole All</button></Link>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-        {enroled.map((cls) => (
+        {sellectedclasses.map((cls) => (
           <div key={cls._id} className="p-4 shadow-md rounded-md">
             <img
               style={{ width: "5rem", height: "5rem", borderRadius: "50%" }}
               src={cls.image}
-              alt=""
+              alt={cls.className}
             />
             <div className="mt-2">
               <h4 className="text-lg text-gray-700 font-bold">{cls.className}</h4>
@@ -63,13 +64,7 @@ const SellectedClasses = () => {
                 >
                   Delete
                 </button>
-                <button
-                  className="btn btn-outline btn-xs btn-warning px-4 rounded-md"
-                  onClick={() => handleEnrole(cls._id)}
-                >
-                  Enrole Now
-                </button>
-                
+                <button onClick={() => handleSingleClassEnrole(cls._id)} className="btn btn-outline btn-xs btn-warning px-4 rounded-md">Pay</button>
               </div>
             </div>
           </div>

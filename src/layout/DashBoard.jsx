@@ -16,10 +16,13 @@ import useInstructor from "../hooks/useInstructor";
 
 const DashBoard = () => {
   const [enroled] = useEnrole();
-  const [isAdmin] = useAdmin();
-  const [isInstructor] = useInstructor();
-  console.log('isAdmin',isAdmin)
-  console.log('isInstructor',isInstructor)
+  const [isAdmin, isAdminLoading] = useAdmin();
+  const [isInstructor, isInstructorLoading] = useInstructor();
+  console.log("isAdmin", isAdmin);
+  console.log("isInstructor", isInstructor);
+  if (isAdminLoading || isInstructorLoading) {
+    return <h1>loading...</h1>;
+  }
   return (
     <>
       <div className="drawer ">
@@ -107,63 +110,63 @@ const DashBoard = () => {
                   </Link>
                 </li>
                 <li>
-                      <Link to="/dashboard/addnewcls">
-                        <motion.span
-                          initial={{ x: -10 }}
-                          animate={{ x: 10 }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            repeatType: "reverse",
-                          }}
-                        >
-                          <FaDemocrat></FaDemocrat>
-                        </motion.span>{" "}
-                        Add A New Class
-                      </Link>
-                    </li>
+                  <Link to="/dashboard/addnewcls">
+                    <motion.span
+                      initial={{ x: -10 }}
+                      animate={{ x: 10 }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                      }}
+                    >
+                      <FaDemocrat></FaDemocrat>
+                    </motion.span>{" "}
+                    Add A New Class
+                  </Link>
+                </li>
                 {/* Routes for instructor  isInstructor &&*/}
-                
-                { isInstructor && (
-                  <>
-                    <li>
-                      <Link to="/dashboard/instructornhome">
-                        <motion.span
-                          initial={{ x: -10 }}
-                          animate={{ x: 10 }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            repeatType: "reverse",
-                          }}
-                        >
-                          <FaHatCowboy></FaHatCowboy>
-                        </motion.span>{" "}
-                        Instructor Home
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/dashboard/addnewcls">
-                        <motion.span
-                          initial={{ x: -10 }}
-                          animate={{ x: 10 }}
-                          transition={{
-                            duration: 3,
-                            repeat: Infinity,
-                            repeatType: "reverse",
-                          }}
-                        >
-                          <FaDemocrat></FaDemocrat>
-                        </motion.span>{" "}
-                        Add A New Class
-                      </Link>
-                    </li>
-                  </>
-                )}
+
                 <div className="divider"></div>
               </>
             )}
-
+            {isInstructor && (
+              <>
+                <li>
+                  <Link to="/dashboard/instructornhome">
+                    <motion.span
+                      initial={{ x: -10 }}
+                      animate={{ x: 10 }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                      }}
+                    >
+                      <FaHatCowboy></FaHatCowboy>
+                    </motion.span>{" "}
+                    Instructor Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/dashboard/addnewcls">
+                    <motion.span
+                      initial={{ x: -10 }}
+                      animate={{ x: 10 }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                      }}
+                    >
+                      <FaDemocrat></FaDemocrat>
+                    </motion.span>{" "}
+                    Add A New Class
+                  </Link>
+                </li>
+              </>
+            )}
+            <div className="divider"></div>
             {/* Routes for other users */}
             {!isAdmin && !isInstructor && (
               <>

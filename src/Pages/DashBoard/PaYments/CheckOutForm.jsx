@@ -5,7 +5,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useTitle from "../../../hooks/useTitle";
 
-const CheckOutForm = ({ fees, enroled }) => {
+const CheckOutForm = ({ totalFees, sellectedclasses }) => {
   useTitle('CheckOut || summerCraftify');
   const stripe = useStripe();
   const elements = useElements();
@@ -17,12 +17,12 @@ const CheckOutForm = ({ fees, enroled }) => {
   const [transactionId, setTransactionId] = useState("");
 
   useEffect(() => {
-    if (fees > 0) {
-      axiosSecure.post("/create-payment-intent", { fees }).then((res) => {
+    if (totalFees > 0) {
+      axiosSecure.post("/create-payment-intent", { totalFees }).then((res) => {
         setClientSecret(res.data.clientSecret);
       });
     }
-  }, [fees, axiosSecure]);
+  }, [totalFees, axiosSecure]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -75,14 +75,14 @@ const CheckOutForm = ({ fees, enroled }) => {
       const payment = {
         email: user?.email,
         transactionId: paymentIntent.id,
-        fees,
+        totalFees,
         date: new Date(),
-        quantity: enroled.length,
-        classId: enroled.map((cls) => cls.classId),
-        interesedIn: enroled.map((cls) => cls._id),
-        instructor: enroled.map((cls) => cls.instructorName),
+        quantity: sellectedclasses.length,
+        classId: sellectedclasses.map((cls) => cls.classId),
+        interesedIn: sellectedclasses.map((cls) => cls._id),
+        instructor: sellectedclasses.map((cls) => cls.instructorName),
         status: "service pending",
-        classesName: enroled.map((cls) => cls.className),
+        classesName: sellectedclasses.map((cls) => cls.className),
       };
       axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);

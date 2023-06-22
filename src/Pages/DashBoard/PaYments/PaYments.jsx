@@ -1,9 +1,9 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
-import useEnrole from "../../../hooks/useEnrole";
-import CheckOutForm from "./CheckOutForm";
+import useSellectedClasses from "../../../hooks/useSellectedClasses";
 import useTitle from "../../../hooks/useTitle";
+import CheckOutForm from "./CheckOutForm";
 
 // todo:
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
@@ -13,10 +13,15 @@ const PaYments = () => {
 
 
 
-const [enroled] = useEnrole();
-const total = enroled.reduce((sum, item) => sum + item.fees, 0) 
+// const [enroled] = useEnrole();
+// const total = enroled.reduce((sum, item) => sum + item.fees, 0) 
 
-const fees = parseFloat(total.toFixed(2))
+// const fees = parseFloat(total.toFixed(2))
+
+const [sellectedclasses] = useSellectedClasses();
+const totalCost = sellectedclasses.reduce((sum, cls) => cls.fees + sum, 0);
+const totalFees = parseFloat(totalCost.toFixed(2))
+
 
 
   return (
@@ -27,7 +32,7 @@ const fees = parseFloat(total.toFixed(2))
       ></SectionTitle>
 
       <Elements stripe={stripePromise}>
-        <CheckOutForm fees={fees} enroled={enroled}></CheckOutForm>
+        <CheckOutForm totalFees={totalFees} sellectedclasses={sellectedclasses}></CheckOutForm>
       </Elements>
     </div>
   );

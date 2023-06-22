@@ -9,7 +9,7 @@ const Enrolled = () => {
   const [enroled, refetch] = useEnrole();
   console.log(enroled);
 
-  const totalFees = enroled.reduce((sum, cls) => cls.fees + sum, 0);
+  // const totalFees = enroled.reduce((sum, cls) => cls.fees + sum, 0);
 
   const handleDelete = (classId) => {
     Swal.fire({
@@ -39,16 +39,16 @@ const Enrolled = () => {
 
   return (
     <div className="flex justify-center items-center flex-col mb-8">
-      <h3 className="text-3xl text-success mt-8">Enrolled Class Count : {enroled.length}</h3>
+      {/* <h3 className="text-3xl text-success mt-8">Enrolled Class Count : {enroled.length}</h3>
       <p className="text-xl text-cyan-700">Total Fees: ${totalFees}</p>
-      <Link to='/dashboard/payments'><button className="btn btn-outline btn-active">PaYment PaYrasia</button></Link>
+      <Link to='/dashboard/payments'><button className="btn btn-outline btn-active">PaYment PaYrasia</button></Link> */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
         {enroled.map((cls) => (
           <div key={cls._id} className="p-4 shadow-md rounded-md">
             <img
               style={{ width: "5rem", height: "5rem", borderRadius: "50%" }}
               src={cls.image}
-              alt=""
+              alt={cls.className}
             />
             <div className="mt-2">
               <h4 className="text-lg text-gray-700 font-bold">{cls.className}</h4>

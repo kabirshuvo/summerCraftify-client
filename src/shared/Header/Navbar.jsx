@@ -1,14 +1,15 @@
-import { FaCanadianMapleLeaf, FaPaypal, FaPlaystation } from 'react-icons/fa';
+import { FaHackerrank, FaPaypal, FaPlaystation } from 'react-icons/fa';
 import { Link, useNavigate } from "react-router-dom";
 import useAdmin from '../../hooks/useAdmin';
 import useAuth from "../../hooks/useAuth";
-import useEnrole from '../../hooks/useEnrole';
 import useInstructor from '../../hooks/useInstructor';
+import useSellectedClasses from '../../hooks/useSellectedClasses';
 const Navbar = () => {
   const { user, logOut } = useAuth()
   const [isAdmin] = useAdmin()
 const [isInstructor] = useInstructor()
-  const [enroled] = useEnrole()
+  // const [sellectedclasses] = useEnrole()
+  const [ sellectedclasses ] = useSellectedClasses()
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -68,7 +69,7 @@ usershome
       <Link to='/dashboard/enroled' className=" mx-8 ">
         <button className="btn btn-xs mt-2 bg-opacity-20">
           <FaPlaystation className='text-xl text-amber-700'></FaPlaystation>
-          <div className="badge badge-info">{enroled.length || 0}</div>
+          <div className="badge badge-info">{sellectedclasses.length || 0}</div>
         </button>
       </Link>
 
@@ -132,7 +133,7 @@ usershome
               {navOptions}
             </ul>
           </div>
-          <Link to="/"><FaCanadianMapleLeaf className='text-2xl text-success'></FaCanadianMapleLeaf></Link>
+          <Link to="/"><FaHackerrank className='text-2xl text-lime-500'></FaHackerrank></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>

@@ -69,6 +69,60 @@ const DisplaySummerClasses = ({ classes }) => {
       });
     }
   };
+
+
+  const handleAddtoWishList = (cls) => {
+    if (user && user.email) {
+      const orderItem = { classId: _id, className, instructorName, image, fees, email: user.email  };
+      fetch("http://localhost:5000/sellectedclasses", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderItem),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            refetch();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Class added to the Wish List",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Please login to Sellect the class",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login now!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", { state: { from: location } });
+        }
+      });
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div
       className="border-accent m-2 relative card card-side bg-base-100 shadow-xl"
@@ -119,6 +173,15 @@ const DisplaySummerClasses = ({ classes }) => {
             disabled={isEnrollmentDisabled}
           >
             Enroll Me
+          </button>
+        </div>
+        <div className="absolute right-10 bottom-10 opacity-60 justify-end">
+          <button
+            onClick={() => handleAddtoWishList(classes)}
+            className="btn-xs btn btn-info btn-outline"
+            disabled={isEnrollmentDisabled}
+          >
+            Add to Wish List
           </button>
         </div>
       </div>
